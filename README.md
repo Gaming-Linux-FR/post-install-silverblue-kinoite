@@ -20,7 +20,7 @@
 
 ### Flatpak ou RPM ? 
 
-Le choix entre l'utilisation de Flatpak et les paquets RPM sur Fedora Silverblue/Kinoite est largement une question de préférence personnelle, chaque méthode ayant ses avantages et ses inconvénients. Les paquets RPM, intégrés au système via `rpm-ostree`, peuvent parfois être moins à jour que leurs homologues disponibles dans les dépôts Flatpak. De plus, leur application nécessite un redémarrage du système pour prendre effet, en raison de la nature immuable de Silverblue/Kinoite. D'un autre côté, bien que Flatpak offre des versions plus récentes des applications et une isolation du dydtème qui peut améliorer la stabilité et la compatibilité, il peuvent nécessiter une gestion manuelle des permissions, comme l'accès à un second disque dur (voir exemple avec steam plus bas). Ce choix dépend donc de vos connaissances et habitudes. 
+Le choix entre l'utilisation de Flatpak et les paquets RPM sur Fedora Silverblue/Kinoite est largement une question de préférence personnelle, chaque méthode ayant ses avantages et ses inconvénients. Les paquets RPM, intégrés au système via `rpm-ostree`, peuvent parfois être moins à jour que leurs homologues disponibles dans les dépôts Flatpak. De plus, leur application nécessite un redémarrage du système pour prendre effet, en raison de la nature immuable de Silverblue/Kinoite. D'un autre côté, bien que Flatpak offre des versions plus récentes des applications et une isolation du sydtème qui peut améliorer la stabilité et la compatibilité, il peuvent nécessiter une gestion manuelle des permissions, comme l'accès à un second disque dur (voir exemple avec steam plus bas). Ce choix dépend donc de vos connaissances et habitudes. 
 
 ### Pilotes Nvidia
 
@@ -97,8 +97,6 @@ Autres exemples :
 ### Restauration du Système (Rollback)
 - **Temporaire** : Redémarrez et sélectionnez la version précédente dans le menu de démarrage.
 - **Permanent** : Utilisez `sudo rpm-ostree rollback` sur e système que vous voulez garder et mettre en priorité au boot.
-
-Pour intégrer l'installation de `xpadneo`, un pilote avancé pour les manettes Xbox sous Linux, adapté aux spécificités de Fedora Silverblue ou toute autre version immuable de Fedora, voici comment procéder :
 
 ### Installation de [xpadneo](https://github.com/atar-axis/xpadneo)
 
