@@ -18,10 +18,6 @@
 
 <br><br><br><br></div>
 
-Votre document est bien structuré et la table des matières fournie devrait offrir une navigation fluide et intuitive pour les lecteurs. Assurez-vous que les sections de votre document sont clairement définies et correspondent aux liens fournis dans la table des matières pour la meilleure expérience utilisateur.
-
-Assurez-vous que chaque élément de cette table des matières correspond à un titre dans votre document, avec un identifiant approprié pour permettre la navigation. Par exemple, pour le titre "Flatpak ou RPM ?", l'identifiant serait `#flatpak-ou-rpm-`. Adapter les identifiants selon les titres exacts de votre document pour assurer une navigation fluide.
-
 ### Flatpak ou RPM ? 
 
 Le choix entre l'utilisation de Flatpak et les paquets RPM sur Fedora Silverblue/Kinoite est largement une question de préférence personnelle, chaque méthode ayant ses avantages et ses inconvénients. Les paquets RPM, intégrés au système via `rpm-ostree`, peuvent parfois être moins à jour que leurs homologues disponibles dans les dépôts Flatpak. De plus, leur application nécessite un redémarrage du système pour prendre effet, en raison de la nature immuable de Silverblue/Kinoite. D'un autre côté, bien que Flatpak offre des versions plus récentes des applications et une isolation du dydtème qui peut améliorer la stabilité et la compatibilité, il peuvent nécessiter une gestion manuelle des permissions, comme l'accès à un second disque dur (voir exemple avec steam plus bas). Ce choix dépend donc de vos connaissances et habitudes. 
