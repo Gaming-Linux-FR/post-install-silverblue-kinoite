@@ -15,12 +15,15 @@
 &ensp;[<kbd> <br> Mise à jour du Système (Rebase) <br> </kbd>](#mise-à-jour-du-système-rebase)&ensp;
 &ensp;[<kbd> <br> Restauration du Système (Rollback) <br> </kbd>](#restauration-du-système-rollback)&ensp;
 &ensp;[<kbd> <br> Installation de xpadneo <br> </kbd>](#installation-de-xpadneo)&ensp;
+<br></div>
 
-<br><br><br><br></div>
+---
 
 ### 📦 Flatpak ou RPM ? 
 
 Le choix entre l'utilisation de Flatpak et les paquets RPM sur Fedora Silverblue/Kinoite est largement une question de préférence personnelle, chaque méthode ayant ses avantages et ses inconvénients. Les paquets RPM, intégrés au système via `rpm-ostree`, peuvent parfois être moins à jour que leurs homologues disponibles dans les dépôts Flatpak. De plus, leur application nécessite un redémarrage du système pour prendre effet, en raison de la nature immuable de Silverblue/Kinoite. D'un autre côté, bien que Flatpak offre des versions plus récentes des applications et une isolation du sydtème qui peut améliorer la stabilité et la compatibilité, il peuvent nécessiter une gestion manuelle des permissions, comme l'accès à un second disque dur (voir exemple avec steam plus bas). Ce choix dépend donc de vos connaissances et habitudes.
+
+---
 
 ### ➕ Ajout de Dépôts RPM Fusion
 Indispensable pour beaucoup de choses dont Nvidia :
@@ -28,6 +31,8 @@ Indispensable pour beaucoup de choses dont Nvidia :
 sudo rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
+
+---
 
 ### 📹 Pilotes Nvidia
 > [!IMPORTANT]
@@ -56,8 +61,12 @@ error: No key 'nomodeset' found
 
 Cela signifie que l'option `nomodeset` n'était pas activée, ce qui est l'état souhaité pour garantir une compatibilité optimale avec les pilotes Nvidia.
 
+---
+
 ### 📹 AMD & Intel
 Pris en charge nativement.
+
+---
 
 ### 📦 Installation d'Applications avec rpm-ostree
 La commande est : ``rpm-ostree install nomdespaquets`` exemple :
@@ -65,6 +74,8 @@ La commande est : ``rpm-ostree install nomdespaquets`` exemple :
 ```bash
 sudo rpm-ostree install fastfetch lutris goverlay wine
 ```
+
+---
 
 ### 📦 Installation d'Applications avec flatpak
 
@@ -79,6 +90,8 @@ Pour Steam flatpak si votre manette ne fonctionne pas vous pouvez tenter :
 ```bash
 sudo rpm-ostree install steam-devices
 ```
+
+---
 
 ###🎬 Firefox avec CODECs non libres.
 Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Silverblue/Kinoite, permettant ainsi la lecture de toutes les vidéos, suivez ces étapes pour remplacer la version par défaut de Firefox par celle disponible via Flatpak de Flathub :
@@ -96,6 +109,8 @@ Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Sil
     - Cliquez sur **Installer** pour procéder avec l'installation.
 
 Cette méthode vous permet d'accéder à une version de Firefox intégrant nativement le support étendu des codecs, indispensable pour une expérience de navigation optimale, notamment pour la lecture vidéo. Opter pour la version Flatpak de Flathub garantit également que vous bénéficiez des mises à jour directes de l'application, indépendamment des cycles de mise à jour du système d'exploitation.
+
+---
 
 ### 🖥️ Mise à jour du Système (Rebase)
 ```bash
@@ -119,9 +134,13 @@ exemples :
 
 On peut passer de Kinoite à Silverblue sans problème, il faut juste reboot après une rebase. Si jamais il y a un problème on peut booter sur l'ancienne entrée et rollback pour la repasser en entée principale.
 
+---
+
 ### 🔄 Restauration du Système (Rollback)
 - **Temporaire** : Redémarrez et sélectionnez la version précédente dans le menu de démarrage.
 - **Permanent** : Utilisez `sudo rpm-ostree rollback` sur e système que vous voulez garder et mettre en priorité au boot.
+
+---
 
 ### 🎮 Installation de [xpadneo](https://github.com/atar-axis/xpadneo)
 
