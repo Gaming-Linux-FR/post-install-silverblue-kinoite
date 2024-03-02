@@ -24,7 +24,7 @@ Le choix entre l'utilisation de Flatpak et les paquets RPM sur Fedora Silverblue
 
 ### Pilotes Nvidia
 
-Important : Désactivez le Secure Boot dans le BIOS/UEFI de l'ordinateur pour permettre l'installation des modules DKMS, essentiels pour les pilotes Nvidia mais aussi par exemple pour Xpadneo bien utile pour les manettes Xbox recentes.
+*Important* : Désactivez le Secure Boot dans le BIOS/UEFI de l'ordinateur pour permettre l'installation des modules [DKMS](https://wiki.archlinux.org/title/Dynamic_Kernel_Module_Support_(Fran%C3%A7ais)), essentiels pour les pilotes Nvidia mais aussi par exemple pour Xpadneo bien utile pour les manettes Xbox recentes.
 
 ```bash
 sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia
@@ -120,3 +120,4 @@ Ces étapes vous permettront d'installer le pilote `xpadneo` sur Fedora Silverbl
         ```bash
         rpm-ostree install xpadneo
         ```
+Comme pour Nvidia, le sécure boot doit être désactivé dans le bios car c'est [DKMS](https://wiki.archlinux.org/title/Dynamic_Kernel_Module_Support_(Fran%C3%A7ais))
