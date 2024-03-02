@@ -92,13 +92,20 @@ Cette méthode vous permet d'accéder à une version de Firefox intégrant nativ
 rpm-ostree rebase fedora:fedora/40/x86_64/silverblue
 ```
 Autres exemples :
-- Pour passer à Silverblue 40 : `rpm-ostree rebase fedora:fedora/41/x86_64/silverblue`
+- Pour passer à Silverblue 40 : `rpm-ostree rebase fedora:fedora/40/x86_64/silverblue`
 - Pour revenir à Silverblue 39 : `rpm-ostree rebase fedora:fedora/39/x86_64/silverblue`
 
 Pour Kinoite : 
 
-- Pour passer à Kinoite 40 : `rpm-ostree rebase fedora:fedora/41/x86_64/silverblue`
-- Pour revenir à Kinoite 39 : `rpm-ostree rebase fedora:fedora/39/x86_64/silverblue`
+- Pour passer à Kinoite 40 : `rpm-ostree rebase fedora:fedora/40/x86_64/kinoite`
+- Pour revenir à Kinoite 39 : `rpm-ostree rebase fedora:fedora/39/x86_64/kinoite`
+
+Pour les versions de développement remplacer le numéro de version par rawhide :
+
+exemples :
+
+- Pour passer à Kinoite Rawhide    : `rpm-ostree rebase fedora:fedora/rawhide/x86_64/kinoite`
+- Pour passer à Silverblue Rawhide : `rpm-ostree rebase fedora:fedora/rawhine/x86_64/silverblue`
 
 On peut passer de Kinoite à Silverblue sans problème, il faut juste reboot après une rebase. Si jamais il y a un problème on peut booter sur l'ancienne entrée et rollback pour la repasser en entée principale.
 
