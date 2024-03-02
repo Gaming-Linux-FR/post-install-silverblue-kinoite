@@ -53,7 +53,7 @@ Pris en charge nativement.
 
 ### Installation d'Applications avec rpm-ostree
 ```bash
-sudo rpm-ostree install fastfetch lutris goverlay wine steam-devices
+sudo rpm-ostree install fastfetch lutris goverlay wine
 ```
 
 ### Installation d'Applications avec flatpak
@@ -64,13 +64,19 @@ Vous pouvez simplement passer par Gnome logiciel sur Silverblue ou Discover sur 
 flatpak override --user --filesystem=/chemin/vers/SSD com.valvesoftware.Steam
 ```
 
+Pour Steam flatpak si votre manette ne fonctionne pas vous pouvez tenter : 
+
+```bash
+sudo rpm-ostree install steam-devices
+```
+
 ### Ajout de Dépôts RPM Fusion
 ```bash
 sudo rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
-### Firefox avec CODECs non libres.
 
+### Firefox avec CODECs non libres.
 Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Silverblue/Kinoite, permettant ainsi la lecture de toutes les vidéos, suivez ces étapes pour remplacer la version par défaut de Firefox par celle disponible via Flatpak de Flathub :
 
 1. **Supprimez Firefox installé par défaut** :
