@@ -68,9 +68,9 @@ flatpak override --user --filesystem=/chemin/vers/SSD com.valvesoftware.Steam
 sudo rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
-### Firefox avec CODEC
+### Firefox avec CODECs non libres.
 
-Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Silverblue, permettant ainsi la lecture de toutes les vidéos, suivez ces étapes pour remplacer la version par défaut de Firefox par celle disponible via Flatpak de Flathub :
+Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Silverblue/Kinoite, permettant ainsi la lecture de toutes les vidéos, suivez ces étapes pour remplacer la version par défaut de Firefox par celle disponible via Flatpak de Flathub :
 
 1. **Supprimez Firefox installé par défaut** :
     - Exécutez la commande suivante pour retirer Firefox et ses paquets de langues associés du système :
