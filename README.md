@@ -24,8 +24,8 @@ Le choix entre l'utilisation de Flatpak et les paquets RPM sur Fedora Silverblue
 
 ### Pilotes Nvidia
 > [!IMPORTANT]
->  Quel que qoit le DE rester sur X11 au moins jusqu'àau merge de ce patch : [explicit-sync](https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/967)
-> Désactivez le Secure Boot dans le BIOS/UEFI de l'ordinateur pour permettre l'installation des modules [DKMS](https://wiki.archlinux.org/title/Dynamic_Kernel_Module_Support_(Fran%C3%A7ais)), essentiels pour les pilotes Nvidia mais aussi par exemple pour Xpadneo bien utile pour les manettes Xbox recentes.
+>  Quel que soit le DE rester sur X11 au moins jusqu'au merge de ce patch : [explicit-sync](https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/967),
+>  Désactivez le Secure Boot dans le BIOS/UEFI de l'ordinateur pour permettre l'installation des modules [DKMS](https://wiki.archlinux.org/title/Dynamic_Kernel_Module_Support_(Fran%C3%A7ais)), essentiels pour les pilotes Nvidia mais aussi par exemple pour Xpadneo bien utile pour les manettes Xbox recentes.
 
 ```bash
 sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia
