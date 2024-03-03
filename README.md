@@ -2,7 +2,7 @@
 
 ## Table des Matières
 
-- **[Flatpak ou RPM ?](#flatpak-ou-rpm)**
+- **[Flatpak ou RPM ?](#flatpak-ou-rpm-?)**
 - **[Pilotes Nvidia](#pilotes-nvidia)**
 - **[Suppression de l'Option `nomodeset`](#suppression-de-loption-nomodeset)**
 - **[AMD & Intel](#amd--intel)**
@@ -10,7 +10,7 @@
 - **[Installation d'Applications avec flatpak](#installation-dapplications-avec-flatpak)**
 - **[Ajout de Dépôts RPM Fusion](#ajout-de-dépôts-rpm-fusion)**
 - **[Firefox avec CODEC](#firefox-avec-codec)**
-- **["Rebase" du Système](#rebase-du-systeme)**
+- **["Rebase" du Système](#"rebase"-du-systeme)**
 - **[Restauration du Système (Rollback)](#restauration-du-système-rollback)**
 - **[Installation de xpadneo](#installation-de-xpadneo)**
 - **[Avoir les Gestes au Pavé Tactile sur Gnome X11](#avoir-les-gestes-au-pavé-tactile-sur-gnome-x11)**
