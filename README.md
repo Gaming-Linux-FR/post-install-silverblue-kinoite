@@ -17,6 +17,7 @@
 &ensp;[<kbd> <br> Installation de xpadneo <br> </kbd>](#installation-de-xpadneo)&ensp;
 &ensp;[<kbd> <br> Avoir les Gestes au Pavé Tactile sur Gnome X11 <br> </kbd>](#avoir-les-gestes-au-pavé-tactile-sur-gnome-x11)&ensp;
 &ensp;[<kbd> <br> Personnalisation de l'Apparence avec Adw-gtk3 <br> </kbd>](#personnalisation-de-lapparence-avec-adw-gtk3)&ensp;
+&ensp;[<kbd> <br> Installation et Configuration d'OpenRGB <br> </kbd>](#installation-et-configuration-dopenrgb)&ensp;
 <br></div>
 
 ---
@@ -210,3 +211,38 @@ Pour personnaliser l'apparence de votre Fedora Silverblue ou Kinoite avec le th�
     - Sélectionnez **Adw-gtk3** dans la section **Anciennes applications** pour appliquer le thème.
 
 Ces étapes vous permettront de bénéficier d'une interface utilisateur modernisée et cohérente, grâce à l'application du thème Adw-gtk3 sur votre système.
+
+Pour intégrer OpenRGB, un outil permettant de contrôler l'éclairage RGB de divers périphériques sur Fedora Silverblue ou Kinoite, suivez ces instructions :
+
+### Installation et Configuration d'[OpenRGB](https://openrgb.org)
+
+1. **Installation des règles udev pour OpenRGB** :
+    - Ceci est nécessaire pour permettre à OpenRGB de communiquer correctement avec votre matériel sans nécessiter de permissions root.
+        ```bash
+        sudo rpm-ostree install openrgb-udev-rules
+        ```
+
+2. **Installation d'OpenRGB via Flatpak** :
+    - Pour installer l'application OpenRGB.
+        ```bash
+        flatpak install org.openrgb.OpenRGB
+        ```
+
+3. **Création d'un Profil OpenRGB** :
+    - Après l'installation, lancez OpenRGB et configurez vos paramètres RGB. Enregistrez ces paramètres sous un profil nommé, par exemple, "fedora".
+
+4. **Ajout d'OpenRGB au Démarrage** :
+    - Ouvrez **Ajustements** dans GNOME.
+    - Allez dans l'onglet **Applications au démarrage**.
+    - Cliquez sur **+** et choisissez **OpenRGB** pour l'ajouter à la liste des applications lancées au démarrage de l'ordinateur.
+
+5. **Configuration du Lancement Automatique du Profil** :
+    - Pour que OpenRGB lance automatiquement votre profil "fedora" au démarrage de l'ordinateur et en mode minimisé, créez ou modifiez le fichier de lancement automatique :
+        ```bash
+        nano ~/.config/autostart/org.openrgb.OpenRGB.desktop
+        ```
+    - Remplacez la ligne existante commençant par `Exec=` avec :
+        ```
+        Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=openrgb org.openrgb.OpenRGB --startminimized --profile "fedora"
+        ```
+    - Sauvegardez et fermez l'éditeur. Cette configuration permettra à OpenRGB de démarrer en arrière-plan avec les paramètres de votre profil "fedora" chaque fois que vous allumerez votre ordinateur.
