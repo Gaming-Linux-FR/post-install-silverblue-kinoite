@@ -26,7 +26,7 @@ function header() {
        ${PURPLE}%%%${RESET}                 ${GREEN}******${RESET}       
        ${PURPLE}%%%${RESET}                     ${GREEN}***${RESET}      Script d'installation des drivers Nvidia pour Fedora Silverblue/Kinoite
        ${PURPLE}%%%${RESET}                     ${GREEN}***${RESET}      
-       ${PURPLE}%%%${RESET}                     ${GREEN}***${RESET}      GitHub : https://github.com/Cardiacman13/Architect
+       ${PURPLE}%%%${RESET}                     ${GREEN}***${RESET}      GitHub : https://github.com/Gaming-Linux-FR
        ${PURPLE}%%%${RESET}                     ${GREEN}***${RESET}      
        ${PURPLE}%%%${RESET}                     ${GREEN}***${RESET} 
         ${PURPLE}%%%%%%${RESET}                 ${GREEN}***${RESET} 
