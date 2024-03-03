@@ -15,6 +15,7 @@
 &ensp;[<kbd> <br> Mise à jour du Système (Rebase) <br> </kbd>](#mise-à-jour-du-système-rebase)&ensp;
 &ensp;[<kbd> <br> Restauration du Système (Rollback) <br> </kbd>](#restauration-du-système-rollback)&ensp;
 &ensp;[<kbd> <br> Installation de xpadneo <br> </kbd>](#installation-de-xpadneo)&ensp;
+&ensp;[<kbd> <br> Avoir les Gestes au Pavé Tactile sur Gnome X11 <br> </kbd>](#avoir-les-gestes-au-pavé-tactile-sur-gnome-x11)&ensp;
 <br></div>
 
 ---
@@ -163,3 +164,24 @@ Ces étapes vous permettront d'installer le pilote `xpadneo` sur Fedora Silverbl
         rpm-ostree install xpadneo
         ```
 Comme pour Nvidia, le *sécure boot doit être désactivé* dans le bios car c'est un [DKMS](https://wiki.archlinux.org/title/Dynamic_Kernel_Module_Support_(Fran%C3%A7ais))
+
+## Avoir les Gestes au Pavé Tactile sur Gnome X11
+
+Les utilisateurs préférant rester encore un peu sur X11 peuvent améliorer leur expérience en activant les gestes tactiles, ce qui rend la navigation et l'interaction avec le système d'exploitation plus intuitive et fluide.
+
+1. **Installation de Touchégg** :
+    - Touchégg est une application qui transforme les gestes sur le pavé tactile en actions. Pour l'installer, utilisez la commande suivante :
+        ```bash
+        rpm-ostree install touchegg
+        ```
+    - Après l'installation, redémarrez votre système pour appliquer les changements :
+        ```bash
+        systemctl reboot
+        ```
+    - Activez ensuite le service Touchégg pour qu'il démarre automatiquement avec le système :
+        ```bash
+        systemctl enable --now touchegg
+        ```
+
+2. **Installation de l'Extension Gnome X11 Gestures** :
+    - Pour une intégration parfaite avec Gnome sous X11, installez l'extension Gnome X11 Gestures. Visitez la page de l'extension sur le site des extensions Gnome à l'adresse suivante et activez-la : [X11 Gestures sur extensions.gnome.org](https://extensions.gnome.org/extension/4033/x11-gestures/).
