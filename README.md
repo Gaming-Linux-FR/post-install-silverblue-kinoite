@@ -2,7 +2,7 @@
 
 ## Table des Matières
 
-- **[Flatpak ou RPM ?](#flatpak-ou-rpm-?)**
+- **[Flatpak ou RPM ?](#flatpak-ou-rpm)**
 - **[Pilotes Nvidia](#pilotes-nvidia)**
 - **[Suppression de l'Option `nomodeset`](#suppression-de-loption-nomodeset)**
 - **[AMD & Intel](#amd--intel)**
@@ -10,7 +10,7 @@
 - **[Installation d'Applications avec flatpak](#installation-dapplications-avec-flatpak)**
 - **[Ajout de Dépôts RPM Fusion](#ajout-de-dépôts-rpm-fusion)**
 - **[Firefox avec CODEC](#firefox-avec-codec)**
-- **["Rebase" du Système](#"rebase"-du-systeme)**
+- **["Rebase" du Système](#rebase-du-systeme)**
 - **[Restauration du Système (Rollback)](#restauration-du-système-rollback)**
 - **[Installation de xpadneo](#installation-de-xpadneo)**
 - **[Avoir les Gestes au Pavé Tactile sur Gnome X11](#avoir-les-gestes-au-pavé-tactile-sur-gnome-x11)**
@@ -20,7 +20,7 @@
 
 ---
 
-## Flatpak ou RPM ? 
+## Flatpak ou RPM 
 
 Le choix entre l'utilisation de Flatpak et les paquets RPM sur Fedora Silverblue/Kinoite est largement une question de préférence personnelle, chaque méthode ayant ses avantages et ses inconvénients. Les paquets RPM, intégrés au système via `rpm-ostree`, peuvent parfois être moins à jour que leurs homologues disponibles dans les dépôts Flatpak. De plus, leur application nécessite un redémarrage du système pour prendre effet, en raison de la nature immuable de Silverblue/Kinoite. D'un autre côté, bien que Flatpak offre des versions plus récentes des applications et une isolation du sydtème qui peut améliorer la stabilité et la compatibilité, il peuvent nécessiter une gestion manuelle des permissions, comme l'accès à un second disque dur (voir exemple avec steam plus bas). Ce choix dépend donc de vos connaissances et habitudes.
 
@@ -117,7 +117,7 @@ Cette méthode vous permet d'accéder à une version de Firefox intégrant nativ
 
 ---
 
-## "Rebase" du système
+## Rebase du système
 
 Passer sur Silverblue 40 qui est au moment ou j'écris ses lignes en phase de testing :
 ```bash
