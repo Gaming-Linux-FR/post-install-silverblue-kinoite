@@ -1,5 +1,13 @@
 #!/bin/bash
 
+set -e # Arrête le script en cas d'erreur
+
+# Vérification de l'exécution du script en tant que root
+if [ "$(id -u)" != "0" ]; then
+   echo "${RED}Ce script doit être exécuté en tant que root. Veuillez lancer avec sudo ou en tant que root.${RESET}" 1>&2
+   exit 1
+fi
+
 # Définition des couleurs
 RESET=$(tput sgr0)
 RED=$(tput setaf 1)
@@ -38,12 +46,6 @@ EOF
 # Affichage de l'en-tête
 header
 
-# Vérification de l'exécution du script en tant que root
-if [ "$(id -u)" != "0" ]; then
-   echo "${RED}Ce script doit être exécuté en tant que root. Veuillez lancer avec sudo ou en tant que root.${RESET}" 1>&2
-   exit 1
-fi
-
 # Définition du chemin du fichier de log
 SCRIPT_DIR=$(dirname "$0")
 LOGFILE="$SCRIPT_DIR/post_install_nvidia.log"
@@ -58,7 +60,7 @@ KARGS_CURRENT=$(rpm-ostree kargs)
 for KARG in $KARGS_NEEDED; do
     if [[ ! $KARGS_CURRENT =~ $KARG ]]; then
         echo "${YELLOW}Ajout de l'argument du noyau $KARG...${RESET}" | tee -a $LOGFILE
-        sudo rpm-ostree kargs --append=$KARG
+        rpm-ostree kargs --append=$KARG --quiet
     else
         echo "${GREEN}L'argument du noyau $KARG est déjà défini.${RESET}" | tee -a $LOGFILE
     fi
@@ -69,7 +71,7 @@ echo "${BLUE}Configuration des arguments du noyau terminée.${RESET}" | tee -a $
 # Vérification et suppression de l'argument `nomodeset`, si présent
 if [[ $KARGS_CURRENT =~ nomodeset ]]; then
     echo "${YELLOW}Suppression de l'argument du noyau 'nomodeset'...${RESET}" | tee -a $LOGFILE
-    sudo rpm-ostree kargs --delete=nomodeset
+    rpm-ostree kargs --delete=nomodeset --quiet
 else
     echo "${GREEN}L'argument du noyau 'nomodeset' n'est pas défini. Aucune action requise.${RESET}" | tee -a $LOGFILE
 fi
@@ -81,14 +83,14 @@ if ! echo "$RPM_OSTREE_STATUS" | grep -q 'rpmfusion-free-release'; then
     echo "${YELLOW}Ajout du dépôt
 
  RPM Fusion Free...${RESET}" | tee -a $LOGFILE
-    sudo rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm | tee -a $LOGFILE
+    rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm --quiet | tee -a $LOGFILE
 else
     echo "${GREEN}Le dépôt RPM Fusion Free est déjà configuré.${RESET}" | tee -a $LOGFILE
 fi
 
 if ! echo "$RPM_OSTREE_STATUS" | grep -q 'rpmfusion-nonfree-release'; then
     echo "${YELLOW}Ajout du dépôt RPM Fusion Non-Free...${RESET}" | tee -a $LOGFILE
-    sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm | tee -a $LOGFILE
+    rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm --quiet | tee -a $LOGFILE
 else
     echo "${GREEN}Le dépôt RPM Fusion Non-Free est déjà configuré.${RESET}" | tee -a $LOGFILE
 fi
@@ -97,7 +99,7 @@ fi
 echo "${BLUE}Vérification de l'installation des pilotes Nvidia...${RESET}" | tee -a $LOGFILE
 if ! echo "$RPM_OSTREE_STATUS" | grep -q 'akmod-nvidia'; then
     echo "${YELLOW}Installation du driver Nvidia...${RESET}" | tee -a $LOGFILE
-    sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda | tee -a $LOGFILE
+    rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda --quiet | tee -a $LOGFILE
 else
     echo "${GREEN}Les pilotes Nvidia sont déjà installés.${RESET}" | tee -a $LOGFILE
 fi
