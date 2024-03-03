@@ -66,8 +66,6 @@ for KARG in $KARGS_NEEDED; do
     fi
 done
 
-echo "${BLUE}Configuration des arguments du noyau terminée.${RESET}" | tee -a $LOGFILE
-
 # Vérification et suppression de l'argument `nomodeset`, si présent
 if [[ $KARGS_CURRENT =~ nomodeset ]]; then
     echo "${YELLOW}Suppression de l'argument du noyau 'nomodeset'...${RESET}" | tee -a $LOGFILE
@@ -75,6 +73,8 @@ if [[ $KARGS_CURRENT =~ nomodeset ]]; then
 else
     echo "${GREEN}L'argument du noyau 'nomodeset' n'est pas défini. Aucune action requise.${RESET}" | tee -a $LOGFILE
 fi
+
+echo "${BLUE}Configuration des arguments du noyau terminée.${RESET}" | tee -a $LOGFILE
 
 # Vérification de la présence des dépôts RPM Fusion
 echo "${BLUE}Vérification des dépôts RPM Fusion...${RESET}" | tee -a $LOGFILE
