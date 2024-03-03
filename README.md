@@ -98,7 +98,7 @@ sudo rpm-ostree install steam-devices
 
 ---
 
-##🎬 Firefox avec CODECs non libres.
+## 🎬 Firefox avec CODECs non libres.
 Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Silverblue/Kinoite, permettant ainsi la lecture de toutes les vidéos, suivez ces étapes pour remplacer la version par défaut de Firefox par celle disponible via Flatpak de Flathub :
 
 1. **Supprimez Firefox installé par défaut** :
