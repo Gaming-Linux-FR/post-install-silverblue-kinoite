@@ -16,6 +16,7 @@
 &ensp;[<kbd> <br> Restauration du Système (Rollback) <br> </kbd>](#restauration-du-système-rollback)&ensp;
 &ensp;[<kbd> <br> Installation de xpadneo <br> </kbd>](#installation-de-xpadneo)&ensp;
 &ensp;[<kbd> <br> Avoir les Gestes au Pavé Tactile sur Gnome X11 <br> </kbd>](#avoir-les-gestes-au-pavé-tactile-sur-gnome-x11)&ensp;
+&ensp;[<kbd> <br> Personnalisation de l'Apparence avec Adw-gtk3 <br> </kbd>](#personnalisation-de-lapparence-avec-adw-gtk3)&ensp;
 <br></div>
 
 ---
@@ -185,3 +186,27 @@ Les utilisateurs préférant rester encore un peu sur X11 peuvent améliorer leu
 
 2. **Installation de l'Extension Gnome X11 Gestures** :
     - Pour une intégration parfaite avec Gnome sous X11, installez l'extension Gnome X11 Gestures. Visitez la page de l'extension sur le site des extensions Gnome à l'adresse suivante et activez-la : [X11 Gestures sur extensions.gnome.org](https://extensions.gnome.org/extension/4033/x11-gestures/).
+
+
+---
+
+### Personnalisation de l'Apparence avec Adw-gtk3
+
+Pour personnaliser l'apparence de votre Fedora Silverblue ou Kinoite avec le thème Adw-gtk3, suivez ces étapes :
+
+1. **Installation du Gnome Tweak Tool et du Thème Adw-gtk3** :
+    ```bash
+    sudo rpm-ostree install gnome-tweak-tool adw-gtk3-theme
+    ```
+
+2. **Installation des Thèmes Flatpak Adw-gtk3** :
+    ```bash
+    flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+    ```
+
+3. **Application du Thème** :
+    - Ouvrez **Ajustements** (présent dans le dossier **Utilitaires** de GNOME).
+    - Naviguez jusqu'à l'onglet **Apparence**.
+    - Sélectionnez **Adw-gtk3** dans la section **Anciennes applications** pour appliquer le thème.
+
+Ces étapes vous permettront de bénéficier d'une interface utilisateur modernisée et cohérente, grâce à l'application du thème Adw-gtk3 sur votre système.
