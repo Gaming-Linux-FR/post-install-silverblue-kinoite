@@ -189,7 +189,6 @@ Les utilisateurs préférant rester encore un peu sur X11 peuvent améliorer leu
 2. **Installation de l'Extension Gnome X11 Gestures** :
     - Pour une intégration parfaite avec Gnome sous X11, installez l'extension Gnome X11 Gestures. Visitez la page de l'extension sur le site des extensions Gnome à l'adresse suivante et activez-la : [X11 Gestures sur extensions.gnome.org](https://extensions.gnome.org/extension/4033/x11-gestures/).
 
-
 ---
 
 ## Personnalisation de l'Apparence avec Adw-gtk3
@@ -251,6 +250,8 @@ Pour intégrer OpenRGB, un outil permettant de contrôler l'éclairage RGB de di
     - Sauvegardez et fermez l'éditeur. Cette configuration permettra à OpenRGB de démarrer en arrière-plan avec les paramètres de votre profil "fedora" chaque fois que vous allumerez votre ordinateur.
   
    Pour intégrer un guide spécifique à l'installation et à la configuration de Steam via Flatpak sur Fedora Silverblue ou Kinoite, suivez ces instructions détaillées :
+
+---
 
 ## Steam Flatpak
 Installation de Steam, configuration pour un démarrage en mode minimisé et ajout d'une bibliothèque de jeux sur un second disque.
