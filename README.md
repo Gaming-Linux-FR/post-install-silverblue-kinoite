@@ -2,31 +2,31 @@
 
 ## Table des Matières
 
-- **[📦 Flatpak ou RPM ?](#-flatpak-ou-rpm-)**
-- **[🖥️ Pilotes Nvidia](#-pilotes-nvidia)**
-- **[⚙️ Suppression de l'Option `nomodeset`](#-suppression-de-loption-nomodeset)**
-- **[🔩 AMD & Intel](#-amd--intel)**
-- **[🛠 Installation d'Applications avec rpm-ostree](#-installation-dapplications-avec-rpm-ostree)**
-- **[📦 Installation d'Applications avec flatpak](#-installation-dapplications-avec-flatpak)**
-- **[➕ Ajout de Dépôts RPM Fusion](#-ajout-de-dépôts-rpm-fusion)**
-- **[🌐 Firefox avec CODEC](#-firefox-avec-codec)**
-- **[🔄 "Rebase" du Système](#-rebase-du-systeme)**
-- **[🔙 Restauration du Système (Rollback)](#-restauration-du-système-rollback)**
-- **[🎮 Installation de xpadneo](#-installation-de-xpadneo)**
-- **[👆 Avoir les Gestes au Pavé Tactile sur Gnome X11](#-avoir-les-gestes-au-pavé-tactile-sur-gnome-x11)**
-- **[🎨 Personnalisation de l'Apparence avec Adw-gtk3](#-personnalisation-de-lapparence-avec-adw-gtk3)**
-- **[💡 Installation et Configuration d'OpenRGB](#-installation-et-configuration-dopenrgb)**
-- **[🕹 Steam Flatpak](#-steam-flatpak)**
+- **[Flatpak ou RPM ?](#flatpak-ou-rpm)**
+- **[Pilotes Nvidia](#pilotes-nvidia)**
+- **[Suppression de l'Option `nomodeset`](#suppression-de-loption-nomodeset)**
+- **[AMD & Intel](#amd--intel)**
+- **[Installation d'Applications avec rpm-ostree](#installation-dapplications-avec-rpm-ostree)**
+- **[Installation d'Applications avec flatpak](#installation-dapplications-avec-flatpak)**
+- **[Ajout de Dépôts RPM Fusion](#ajout-de-dépôts-rpm-fusion)**
+- **[Firefox avec CODEC](#firefox-avec-codec)**
+- **["Rebase" du Système](#rebase-du-systeme)**
+- **[Restauration du Système (Rollback)](#restauration-du-système-rollback)**
+- **[Installation de xpadneo](#installation-de-xpadneo)**
+- **[Avoir les Gestes au Pavé Tactile sur Gnome X11](#avoir-les-gestes-au-pavé-tactile-sur-gnome-x11)**
+- **[Personnalisation de l'Apparence avec Adw-gtk3](#personnalisation-de-lapparence-avec-adw-gtk3)**
+- **[Installation et Configuration d'OpenRGB](#installation-et-configuration-dopenrgb)**
+- **[Steam Flatpak](#steam-flatpak)**
 
 ---
 
-## 📦 Flatpak ou RPM ? 
+## Flatpak ou RPM ? 
 
 Le choix entre l'utilisation de Flatpak et les paquets RPM sur Fedora Silverblue/Kinoite est largement une question de préférence personnelle, chaque méthode ayant ses avantages et ses inconvénients. Les paquets RPM, intégrés au système via `rpm-ostree`, peuvent parfois être moins à jour que leurs homologues disponibles dans les dépôts Flatpak. De plus, leur application nécessite un redémarrage du système pour prendre effet, en raison de la nature immuable de Silverblue/Kinoite. D'un autre côté, bien que Flatpak offre des versions plus récentes des applications et une isolation du sydtème qui peut améliorer la stabilité et la compatibilité, il peuvent nécessiter une gestion manuelle des permissions, comme l'accès à un second disque dur (voir exemple avec steam plus bas). Ce choix dépend donc de vos connaissances et habitudes.
 
 ---
 
-## ➕ Ajout de Dépôts RPM Fusion
+## Ajout de Dépôts RPM Fusion
 Indispensable pour beaucoup de choses dont *Nvidia* :
 ```bash
 sudo rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -34,8 +34,7 @@ sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-n
 ```
 
 ---
-
-## 📹 Pilotes Nvidia
+## Pilotes Nvidia
 > [!IMPORTANT]
 >  Quel que soit le DE et la distribution, restez sur *X11* au moins jusqu'à ce que ce patch arrive dans votre distro. : [explicit-sync](https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/967),
 >  Désactivez le Secure Boot dans le BIOS/UEFI de l'ordinateur pour permettre l'installation des modules [DKMS](https://wiki.archlinux.org/title/Dynamic_Kernel_Module_Support_(Fran%C3%A7ais)), essentiels pour les pilotes Nvidia mais aussi par exemple pour Xpadneo bien utile pour les manettes Xbox recentes.
@@ -69,12 +68,12 @@ Cela signifie que l'option `nomodeset` n'était pas activée, *ce qui est l'éta
 
 ---
 
-## 📹 AMD & Intel
+## AMD & Intel
 Pris en charge nativement.
 
 ---
 
-## 📦 Installation d'Applications avec rpm-ostree
+## Installation d'Applications avec rpm-ostree
 La commande est : ``rpm-ostree install nomdespaquets`` exemple :
 
 ```bash
@@ -83,7 +82,7 @@ sudo rpm-ostree install fastfetch lutris goverlay wine
 
 ---
 
-## 📦 Installation d'Applications avec flatpak
+## Installation d'Applications avec flatpak
 
 Vous pouvez simplement passer par *Gnome logiciel* sur Silverblue ou *Discover* sur Kinoite sachez ce pendant que par exemple pour que un flatpak ait accès à un second stockage c'est ce genre de commandes :
 
@@ -99,7 +98,7 @@ sudo rpm-ostree install steam-devices
 
 ---
 
-## 🎬 Firefox avec CODECs non libres.
+## Firefox avec CODECs non libres.
 Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Silverblue/Kinoite, permettant ainsi la lecture de toutes les vidéos, suivez ces étapes pour remplacer la version par défaut de Firefox par celle disponible via Flatpak de Flathub :
 
 1. **Supprimez Firefox installé par défaut** :
@@ -118,7 +117,7 @@ Cette méthode vous permet d'accéder à une version de Firefox intégrant nativ
 
 ---
 
-## 🖥️ Rebase du système
+## "Rebase" du système
 
 Passer sur Silverblue 40 qui est au moment ou j'écris ses lignes en phase de testing :
 ```bash
@@ -142,13 +141,13 @@ On peut passer de Kinoite à Silverblue sans problème, il faut juste reboot apr
 
 ---
 
-## 🔄 Restauration du Système (Rollback)
+## Restauration du Système (Rollback)
 - **Temporaire** : Redémarrez et sélectionnez la version précédente dans le menu de démarrage.
 - **Permanent** : Utilisez `sudo rpm-ostree rollback` sur e système que vous voulez garder et mettre en priorité au boot.
 
 ---
 
-## 🎮 Installation de [xpadneo](https://github.com/atar-axis/xpadneo)
+## Installation de [xpadneo](https://github.com/atar-axis/xpadneo)
 
 Ces étapes vous permettront d'installer le pilote `xpadneo` sur Fedora Silverblue, offrant une meilleure expérience d'utilisation des manettes Xbox récentes.
 
