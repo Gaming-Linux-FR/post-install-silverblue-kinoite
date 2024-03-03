@@ -46,7 +46,7 @@ git clone https://github.com/Gaming-Linux-FR/post-install-silverblue-kinoite.git
 
 - Ajout du driver et des options kernel
 ```bash
-sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia
+sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda
 sudo rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
 ```
 
