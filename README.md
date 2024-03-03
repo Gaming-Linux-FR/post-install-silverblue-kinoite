@@ -191,7 +191,7 @@ Les utilisateurs préférant rester encore un peu sur X11 peuvent améliorer leu
 
 ---
 
-### Personnalisation de l'Apparence avec Adw-gtk3
+## Personnalisation de l'Apparence avec Adw-gtk3
 
 Pour personnaliser l'apparence de votre Fedora Silverblue ou Kinoite avec le thème Adw-gtk3, suivez ces étapes :
 
@@ -214,7 +214,9 @@ Ces étapes vous permettront de bénéficier d'une interface utilisateur moderni
 
 Pour intégrer OpenRGB, un outil permettant de contrôler l'éclairage RGB de divers périphériques sur Fedora Silverblue ou Kinoite, suivez ces instructions :
 
-### Installation et Configuration d'[OpenRGB](https://openrgb.org)
+---
+
+## Installation et Configuration d'[OpenRGB](https://openrgb.org)
 
 1. **Installation des règles udev pour OpenRGB** :
     - Ceci est nécessaire pour permettre à OpenRGB de communiquer correctement avec votre matériel sans nécessiter de permissions root.
