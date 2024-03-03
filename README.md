@@ -43,7 +43,7 @@ sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-n
 >  Quel que soit le DE et la distribution, restez sur *X11* au moins jusqu'à ce que ce patch arrive dans votre distro. : [explicit-sync](https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/967),
 >  Désactivez le Secure Boot dans le BIOS/UEFI de l'ordinateur pour permettre l'installation des modules [DKMS](https://wiki.archlinux.org/title/Dynamic_Kernel_Module_Support_(Fran%C3%A7ais)), essentiels pour les pilotes Nvidia mais aussi par exemple pour Xpadneo bien utile pour les manettes Xbox recentes.
 
-*Script pour tout automatiser :*
+**Script pour tout automatiser :**
 ```bash
 git clone https://github.com/Gaming-Linux-FR/post-install-silverblue-kinoite.git ~/post-install-silverblue-kinoite && cd ~/post-install-silverblue-kinoite && chmod +x ./nvidia.sh && sudo ./nvidia.sh
 ```
@@ -191,7 +191,7 @@ Les utilisateurs préférant rester encore un peu sur X11 peuvent améliorer leu
 
 ---
 
-## Personnalisation de l'Apparence avec Adw-gtk3
+## Personnalisation de l'Apparence avec Adw-gtk3 **Uniquement utile sur SILVERBLUE**
 
 Pour personnaliser l'apparence de votre Fedora Silverblue ou Kinoite avec le thème Adw-gtk3, suivez ces étapes :
 
