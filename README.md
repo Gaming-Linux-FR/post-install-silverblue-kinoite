@@ -1,25 +1,22 @@
 # Configuration de Fedora Silverblue ou Kinoite
 
-### Table des matières
+## Table des Matières
 
-<div align="center">
-
-&ensp;[<kbd> <br> Flatpak ou RPM ? <br> </kbd>](#flatpak-ou-rpm-)&ensp;
-&ensp;[<kbd> <br> Pilotes Nvidia <br> </kbd>](#pilotes-nvidia)&ensp;
-&ensp;[<kbd> <br> Suppression de l'Option `nomodeset` <br> </kbd>](#suppression-de-loption-nomodeset)&ensp;
-&ensp;[<kbd> <br> AMD & Intel <br> </kbd>](#amd--intel)&ensp;
-&ensp;[<kbd> <br> Installation d'Applications avec rpm-ostree <br> </kbd>](#installation-dapplications-avec-rpm-ostree)&ensp;
-&ensp;[<kbd> <br> Installation d'Applications avec flatpak <br> </kbd>](#installation-dapplications-avec-flatpak)&ensp;
-&ensp;[<kbd> <br> Ajout de Dépôts RPM Fusion <br> </kbd>](#ajout-de-dépôts-rpm-fusion)&ensp;
-&ensp;[<kbd> <br> Firefox avec CODEC <br> </kbd>](#firefox-avec-codec)&ensp;
-&ensp;[<kbd> <br> Mise à jour du Système (Rebase) <br> </kbd>](#mise-à-jour-du-système-rebase)&ensp;
-&ensp;[<kbd> <br> Restauration du Système (Rollback) <br> </kbd>](#restauration-du-système-rollback)&ensp;
-&ensp;[<kbd> <br> Installation de xpadneo <br> </kbd>](#installation-de-xpadneo)&ensp;
-&ensp;[<kbd> <br> Avoir les Gestes au Pavé Tactile sur Gnome X11 <br> </kbd>](#avoir-les-gestes-au-pavé-tactile-sur-gnome-x11)&ensp;
-&ensp;[<kbd> <br> Personnalisation de l'Apparence avec Adw-gtk3 <br> </kbd>](#personnalisation-de-lapparence-avec-adw-gtk3)&ensp;
-&ensp;[<kbd> <br> Installation et Configuration d'OpenRGB <br> </kbd>](#installation-et-configuration-dopenrgb)&ensp;
-&ensp;[<kbd> <br> Steam Flatpak <br> </kbd>](#steam-flatpak)&ensp;
-<br></div>
+- **[📦 Flatpak ou RPM ?](#-flatpak-ou-rpm-)**
+- **[🖥️ Pilotes Nvidia](#-pilotes-nvidia)**
+- **[⚙️ Suppression de l'Option `nomodeset`](#-suppression-de-loption-nomodeset)**
+- **[🔩 AMD & Intel](#-amd--intel)**
+- **[🛠 Installation d'Applications avec rpm-ostree](#-installation-dapplications-avec-rpm-ostree)**
+- **[📦 Installation d'Applications avec flatpak](#-installation-dapplications-avec-flatpak)**
+- **[➕ Ajout de Dépôts RPM Fusion](#-ajout-de-dépôts-rpm-fusion)**
+- **[🌐 Firefox avec CODEC](#-firefox-avec-codec)**
+- **[🔄 Mise à jour du Système (Rebase)](#-mise-à-jour-du-système-rebase)**
+- **[🔙 Restauration du Système (Rollback)](#-restauration-du-système-rollback)**
+- **[🎮 Installation de xpadneo](#-installation-de-xpadneo)**
+- **[👆 Avoir les Gestes au Pavé Tactile sur Gnome X11](#-avoir-les-gestes-au-pavé-tactile-sur-gnome-x11)**
+- **[🎨 Personnalisation de l'Apparence avec Adw-gtk3](#-personnalisation-de-lapparence-avec-adw-gtk3)**
+- **[💡 Installation et Configuration d'OpenRGB](#-installation-et-configuration-dopenrgb)**
+- **[🕹 Steam Flatpak](#-steam-flatpak)**
 
 ---
 
