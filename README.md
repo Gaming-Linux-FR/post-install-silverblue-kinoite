@@ -10,7 +10,7 @@
 - **[📦 Installation d'Applications avec flatpak](#-installation-dapplications-avec-flatpak)**
 - **[➕ Ajout de Dépôts RPM Fusion](#-ajout-de-dépôts-rpm-fusion)**
 - **[🌐 Firefox avec CODEC](#-firefox-avec-codec)**
-- **[🔄 Mise à jour du Système (Rebase)](#-mise-à-jour-du-système-rebase)**
+- **[🔄 "Rebase" du Système](#-rebase-du-système)**
 - **[🔙 Restauration du Système (Rollback)](#-restauration-du-système-rollback)**
 - **[🎮 Installation de xpadneo](#-installation-de-xpadneo)**
 - **[👆 Avoir les Gestes au Pavé Tactile sur Gnome X11](#-avoir-les-gestes-au-pavé-tactile-sur-gnome-x11)**
@@ -118,13 +118,13 @@ Cette méthode vous permet d'accéder à une version de Firefox intégrant nativ
 
 ---
 
-## 🖥️ Mise à jour du Système (Rebase)
+## 🖥️ "Rebase" du Système
+
+Passer sur Silverblue 40 qui est au moment ou j'écris ses lignes en phase de testing :
 ```bash
 rpm-ostree rebase fedora:fedora/40/x86_64/silverblue
 ```
-Autres exemples :
-- Pour passer à Silverblue 40 : `rpm-ostree rebase fedora:fedora/40/x86_64/silverblue`
-- Pour revenir à Silverblue 39 : `rpm-ostree rebase fedora:fedora/39/x86_64/silverblue`
+- Pour revenir à Silverblue 39 l'actuelle release : `rpm-ostree rebase fedora:fedora/39/x86_64/silverblue`
 
 Pour Kinoite : 
 
