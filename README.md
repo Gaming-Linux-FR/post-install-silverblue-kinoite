@@ -18,6 +18,7 @@
 &ensp;[<kbd> <br> Avoir les Gestes au Pavé Tactile sur Gnome X11 <br> </kbd>](#avoir-les-gestes-au-pavé-tactile-sur-gnome-x11)&ensp;
 &ensp;[<kbd> <br> Personnalisation de l'Apparence avec Adw-gtk3 <br> </kbd>](#personnalisation-de-lapparence-avec-adw-gtk3)&ensp;
 &ensp;[<kbd> <br> Installation et Configuration d'OpenRGB <br> </kbd>](#installation-et-configuration-dopenrgb)&ensp;
+&ensp;[<kbd> <br> Steam Flatpak <br> </kbd>](#steam-flatpak)&ensp;
 <br></div>
 
 ---
@@ -248,3 +249,44 @@ Pour intégrer OpenRGB, un outil permettant de contrôler l'éclairage RGB de di
         Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=openrgb org.openrgb.OpenRGB --startminimized --profile "fedora"
         ```
     - Sauvegardez et fermez l'éditeur. Cette configuration permettra à OpenRGB de démarrer en arrière-plan avec les paramètres de votre profil "fedora" chaque fois que vous allumerez votre ordinateur.
+  
+   Pour intégrer un guide spécifique à l'installation et à la configuration de Steam via Flatpak sur Fedora Silverblue ou Kinoite, suivez ces instructions détaillées :
+
+## Steam Flatpak
+Installation de Steam, configuration pour un démarrage en mode minimisé et ajout d'une bibliothèque de jeux sur un second disque.
+
+### Installation de Steam et Configuration des Périphériques
+
+1. **Installation des pilotes de périphériques pour Steam** :
+    - Cette étape assure que tous les périphériques nécessaires pour Steam (comme les contrôleurs de jeu) fonctionnent correctement.
+        ```bash
+        sudo rpm-ostree install steam-devices
+        ```
+
+2. **Installation de Steam via Flatpak** :
+    - Pour installer la version Flatpak de Steam, qui offre une meilleure intégration et isolation sur Fedora Silverblue et Kinoite.
+        ```bash
+        flatpak install com.valvesoftware.Steam
+        ```
+
+### Lancement Automatique de Steam en Mode Minimisé
+
+1. **Configuration du démarrage automatique** :
+    - Pour que Steam démarre automatiquement à l'ouverture de session, en mode minimisé, modifiez le fichier de démarrage automatique :
+        ```bash
+        nano ~/.config/autostart/com.valvesoftware.Steam.desktop
+        ```
+    - Ajoutez " -silent " entre %U et @@ dans la ligne `Exec=`, afin qu'elle ressemble à ceci :
+        ```
+        Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/steam --file-forwarding com.valvesoftware.Steam @@U %U -silent @@
+        ```
+    - Cette modification permet de lancer Steam automatiquement en arrière-plan, sans fenêtre de démarrage.
+
+### Ajout d'un Second Disque de Jeux
+
+1. **Configuration de l'accès à un second disque** :
+    - Si vous souhaitez ajouter un second disque dur ou SSD pour votre bibliothèque de jeux Steam, vous devez accorder à Steam l'accès à ce disque via une surcharge Flatpak :
+        ```bash
+        flatpak override --user --filesystem=/chemin/vers/votre/Bibliothèque/Steam com.valvesoftware.Steam
+        ```
+    - Remplacez `/chemin/vers/votre/Bibliothèque/Steam` par le chemin réel vers votre dossier de bibliothèque Steam sur le second disque.
