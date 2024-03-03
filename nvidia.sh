@@ -74,8 +74,6 @@ else
     echo "${GREEN}L'argument du noyau 'nomodeset' n'est pas défini. Aucune action requise.${RESET}" | tee -a $LOGFILE
 fi
 
-echo "${BLUE}Configuration des arguments du noyau terminée.${RESET}" | tee -a $LOGFILE
-
 # Vérification de la présence des dépôts RPM Fusion
 echo "${BLUE}Vérification des dépôts RPM Fusion...${RESET}" | tee -a $LOGFILE
 RPM_OSTREE_STATUS=$(rpm-ostree status)
