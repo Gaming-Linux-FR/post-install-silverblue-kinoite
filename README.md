@@ -22,7 +22,11 @@
 
 ## Flatpak ou RPM 
 
-Le choix entre l'utilisation de Flatpak et les paquets RPM sur Fedora Silverblue/Kinoite est une question de préférence personnelle, chaque méthode ayant ses avantages et ses inconvénients. Les paquets RPM, intégrés au système via `rpm-ostree`, peuvent souvant être moins à jour que leurs homologues disponibles dans les dépôts Flatpak (mais parfois c'est aussi le contraire). De plus, leur application nécessite un redémarrage du système pour prendre effet, en raison de la nature immuable de Silverblue/Kinoite. D'un autre côté, bien que Flatpak offre des versions plus récentes des applications et une isolation du sydtème qui peut améliorer la stabilité et la compatibilité, il peuvent nécessiter une gestion manuelle des permissions, comme l'accès à un second disque dur (voir exemple avec steam plus bas). Ce choix dépend donc de vos connaissances et habitudes. On peut aussi noter que les paquet RPM sont fournis officiellement par Fedora, alors que les Flatpak certains sont officiel comme parexemple Discord ou Firefox, mais d'autres sont communautaires et peuvent être abandonnés ou mal suivis.
+La décision d'utiliser Flatpak ou des paquets RPM sur Fedora Silverblue/Kinoite dépend largement de vos préférences personnelles, car chaque méthode présente ses propres avantages et inconvénients.
+
+- **Paquets RPM** : Installés avec `rpm-ostree install` sur Silverblue/Kinoite, les paquets RPM sont intégrés directement dans le système. L'installation ou la mise à jour de paquets RPM nécessite un redémarrage du système pour être effective, en raison du caractère immuable de ces distributions. Cela peut être perçu comme une contrainte, surtout si vous recherchez une flexibilité et une mise à jour rapide de vos applications. Les paquets RPM sont officiellement fournis par Fedora, ce qui peut offrir une certaine assurance quant à leur qualité et leur suivi.
+
+- **Flatpak** : Cette méthode offre souvent des versions d'applications plus récentes et une isolation par rapport au système, ce qui peut améliorer la stabilité et la compatibilité des applications ainsi que augmenter la protection de votre vie privée. Cependant, l'utilisation de Flatpak peut exiger une gestion manuelle des permissions, par exemple pour permettre à une application comme Steam d'accéder à un second disque dur. Bien que Flatpak puisse offrir une plus grande flexibilité et des mises à jour plus fréquentes, certains paquets sont maintenus par la communauté et peuvent donc être sujets à des problèmes de suivi ou être abandonnés.
 
 ---
 
