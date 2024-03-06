@@ -88,17 +88,7 @@ sudo rpm-ostree install fastfetch lutris goverlay wine
 
 ## Installation d'Applications avec flatpak
 
-Vous pouvez simplement passer par *Gnome logiciel* sur Silverblue ou *Discover* sur Kinoite sachez ce pendant que par exemple pour que un flatpak ait accès à un second stockage c'est ce genre de commandes :
-
-```bash
-flatpak override --user --filesystem=/chemin/vers/SSD com.valvesoftware.Steam
-```
-
-Pour Steam flatpak si votre manette ne fonctionne pas vous pouvez tenter : 
-
-```bash
-sudo rpm-ostree install steam-devices
-```
+Vous pouvez simplement passer par *Gnome logiciel* sur Silverblue ou *Discover* sur Kinoite. Attention de bien selectionner la source flathub en haut à droite.
 
 ---
 
