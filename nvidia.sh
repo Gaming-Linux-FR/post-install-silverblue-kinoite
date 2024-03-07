@@ -2,12 +2,6 @@
 
 set -e # Arrête le script en cas d'erreur
 
-# Vérification de l'exécution du script en tant que root
-if [ "$(id -u)" != "0" ]; then
-   echo "${RED}Ce script doit être exécuté en tant que root. Veuillez lancer avec sudo ou en tant que root.${RESET}" 1>&2
-   exit 1
-fi
-
 # Définition des couleurs
 RESET=$(tput sgr0)
 RED=$(tput setaf 1)
@@ -15,6 +9,17 @@ GREEN=$(tput setaf 2)
 YELLOW=$(tput setaf 3)
 BLUE=$(tput setaf 4)
 PURPLE=$(tput setaf 5)
+
+# Vérification de l'exécution du script en tant que root
+if [ "$(id -u)" != "0" ]; then
+   echo "${RED}Ce script doit être exécuté en tant que root. Veuillez lancer avec sudo ou en tant que root.${RESET}" 1>&2
+   exit 1
+fi
+
+
+# Définition des URLs RPM Fusion
+RPMFUSION_FREE="https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(. /etc/os-release && echo $VERSION_ID).noarch.rpm"
+RPMFUSION_NONFREE="https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(. /etc/os-release && echo $VERSION_ID).noarch.rpm"
 
 # Fonction d'en-tête pour l'affichage initial
 function header() {
