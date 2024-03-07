@@ -57,26 +57,39 @@ else
     echo "${GREEN}Le fichier de configuration pour charger les modules Nvidia dans l'initramfs existe déjà.${RESET}"
 fi
 
-# Configuration des arguments du noyau pour Nvidia, si nécessaire
+# Configuration et nettoyage des arguments du noyau pour Nvidia, si nécessaire
 KARGS_NEEDED="rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 nvidia-drm.fbdev=1"
 KARGS_CURRENT=$(rpm-ostree kargs)
 
+# Initialiser une chaîne pour les modifications d'arguments du noyau
+KARGS_MODS=""
+
+# Vérifier chaque argument nécessaire et le planifier pour ajout si absent
 for KARG in $KARGS_NEEDED; do
     if [[ ! $KARGS_CURRENT =~ $KARG ]]; then
-        echo "${YELLOW}Ajout de l'argument du noyau $KARG...${RESET}"
-        rpm-ostree kargs --append=$KARG --quiet
+        echo "${YELLOW}Planification de l'ajout de l'argument du noyau $KARG...${RESET}"
+        KARGS_MODS+=" --append=$KARG"
     else
         echo "${GREEN}L'argument du noyau $KARG est déjà défini.${RESET}"
     fi
 done
 
-# Vérification et suppression de l'argument `nomodeset`, si présent
+# Planifier la suppression de l'argument `nomodeset` si présent
 if [[ $KARGS_CURRENT =~ nomodeset ]]; then
-    echo "${YELLOW}Suppression de l'argument du noyau 'nomodeset'...${RESET}"
-    rpm-ostree kargs --delete=nomodeset --quiet
+    echo "${YELLOW}Planification de la suppression de l'argument du noyau 'nomodeset'...${RESET}"
+    KARGS_MODS+=" --delete=nomodeset"
 else
     echo "${GREEN}L'argument du noyau 'nomodeset' n'est pas défini. Aucune action requise.${RESET}"
 fi
+
+# Appliquer toutes les modifications d'arguments du noyau en une seule commande, si nécessaire
+if [ -n "$KARGS_MODS" ]; then
+    echo "${YELLOW}Application des modifications d'arguments du noyau...${RESET}"
+    rpm-ostree kargs $KARGS_MODS
+else
+    echo "${GREEN}Aucune modification d'argument du noyau nécessaire. Configuration actuelle déjà optimale.${RESET}"
+fi
+
 
 # Vérification de la présence des dépôts RPM Fusion
 echo "${BLUE}Vérification des dépôts RPM Fusion...${RESET}"
