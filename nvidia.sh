@@ -91,23 +91,25 @@ else
 fi
 
 
-# Vérification de la présence des dépôts RPM Fusion
-echo "${BLUE}Vérification des dépôts RPM Fusion...${RESET}"
+# Vérification de la présence des dépôts RPM Fusion et mise à jour si nécessaire
+echo "${BLUE}Vérification et mise à jour des dépôts RPM Fusion si nécessaire...${RESET}"
 RPM_OSTREE_STATUS=$(rpm-ostree status)
-if ! echo "$RPM_OSTREE_STATUS" | grep -q 'rpmfusion-free-release'; then
-    echo "${YELLOW}Ajout du dépôt
 
- RPM Fusion Free...${RESET}"
-    rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm --quiet
-else
-    echo "${GREEN}Le dépôt RPM Fusion Free est déjà configuré.${RESET}"
-fi
+# Vérification si les dépôts RPM Fusion sont déjà configurés
+DEPOTS_FREE_INSTALLED=$(echo "$RPM_OSTREE_STATUS" | grep -q 'rpmfusion-free-release' && echo "yes" || echo "no")
+DEPOTS_NONFREE_INSTALLED=$(echo "$RPM_OSTREE_STATUS" | grep -q 'rpmfusion-nonfree-release' && echo "yes" || echo "no")
 
-if ! echo "$RPM_OSTREE_STATUS" | grep -q 'rpmfusion-nonfree-release'; then
-    echo "${YELLOW}Ajout du dépôt RPM Fusion Non-Free...${RESET}"
-    rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm --quiet
+# Ajout des dépôts si non présents, et mise à jour pour utiliser les versions non versionnées
+if [ "$DEPOTS_FREE_INSTALLED" = "no" ] || [ "$DEPOTS_NONFREE_INSTALLED" = "no" ]; then
+    echo "${YELLOW}Installation et mise à jour des dépôts RPM Fusion...${RESET}"
+    sudo rpm-ostree install $RPMFUSION_FREE $RPMFUSION_NONFREE --apply-live
+    
+    # Remplacer les dépôts versionnés par les versions actuelles
+    sudo rpm-ostree update --uninstall rpmfusion-free-release --uninstall rpmfusion-nonfree-release --install rpmfusion-free-release --install rpmfusion-nonfree-release --apply-live
 else
-    echo "${GREEN}Le dépôt RPM Fusion Non-Free est déjà configuré.${RESET}"
+    echo "${GREEN}Les dépôts RPM Fusion sont déjà configurés. Vérification de la nécessité de mise à jour...${RESET}"
+    # Remplacer les dépôts versionnés par les versions actuelles sans les installer à nouveau si déjà présents
+    sudo rpm-ostree update --uninstall rpmfusion-free-release --uninstall rpmfusion-nonfree-release --install rpmfusion-free-release --install rpmfusion-nonfree-release --apply-live
 fi
 
 # Vérification et installation des pilotes Nvidia si nécessaire
