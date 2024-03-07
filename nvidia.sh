@@ -46,16 +46,16 @@ EOF
 # Affichage de l'en-tête
 header
 
-# Définition du chemin du fichier de log
-SCRIPT_DIR=$(dirname "$0")
-LOGFILE="$SCRIPT_DIR/post_install_nvidia.log"
-
 # Message de début du script
 echo "${BLUE}Début du script d'installation des drivers Nvidia sur Fedora Silverblue${RESET}"
 
 # Chargement des modules Nvidia dans l'initramfs
-echo "${BLUE}Configuration du chargement précoce des modules Nvidia...${RESET}"
-echo "force_drivers+=\" nvidia nvidia_modeset nvidia_uvm nvidia_drm \"" | sudo tee /etc/dracut.conf.d/nvidia.conf > /dev/null
+if [ ! -f "/etc/dracut.conf.d/nvidia.conf" ]; then
+    echo "${YELLOW}Création du fichier de configuration pour Nvidia...${RESET}"
+    echo "force_drivers+=\" nvidia nvidia_modeset nvidia_uvm nvidia_drm \"" | sudo tee /etc/dracut.conf.d/nvidia.conf > /dev/null
+else
+    echo "${GREEN}Le fichier de configuration pour Nvidia existe déjà.${RESET}"
+fi
 
 # Configuration des arguments du noyau pour Nvidia, si nécessaire
 KARGS_NEEDED="rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 nvidia-drm.fbdev=1"
@@ -72,39 +72,38 @@ done
 
 # Vérification et suppression de l'argument `nomodeset`, si présent
 if [[ $KARGS_CURRENT =~ nomodeset ]]; then
-    echo "${YELLOW}Suppression de l'argument du noyau 'nomodeset'...${RESET}" | tee -a $LOGFILE
+    echo "${YELLOW}Suppression de l'argument du noyau 'nomodeset'...${RESET}"
     rpm-ostree kargs --delete=nomodeset --quiet
 else
-    echo "${GREEN}L'argument du noyau 'nomodeset' n'est pas défini. Aucune action requise.${RESET}" | tee -a $LOGFILE
+    echo "${GREEN}L'argument du noyau 'nomodeset' n'est pas défini. Aucune action requise.${RESET}"
 fi
 
 # Vérification de la présence des dépôts RPM Fusion
-echo "${BLUE}Vérification des dépôts RPM Fusion...${RESET}" | tee -a $LOGFILE
+echo "${BLUE}Vérification des dépôts RPM Fusion...${RESET}"
 RPM_OSTREE_STATUS=$(rpm-ostree status)
 if ! echo "$RPM_OSTREE_STATUS" | grep -q 'rpmfusion-free-release'; then
     echo "${YELLOW}Ajout du dépôt
 
- RPM Fusion Free...${RESET}" | tee -a $LOGFILE
-    rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm --quiet | tee -a $LOGFILE
+ RPM Fusion Free...${RESET}"
+    rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm --quiet
 else
-    echo "${GREEN}Le dépôt RPM Fusion Free est déjà configuré.${RESET}" | tee -a $LOGFILE
+    echo "${GREEN}Le dépôt RPM Fusion Free est déjà configuré.${RESET}"
 fi
 
 if ! echo "$RPM_OSTREE_STATUS" | grep -q 'rpmfusion-nonfree-release'; then
-    echo "${YELLOW}Ajout du dépôt RPM Fusion Non-Free...${RESET}" | tee -a $LOGFILE
-    rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm --quiet | tee -a $LOGFILE
+    echo "${YELLOW}Ajout du dépôt RPM Fusion Non-Free...${RESET}"
+    rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm --quiet
 else
-    echo "${GREEN}Le dépôt RPM Fusion Non-Free est déjà configuré.${RESET}" | tee -a $LOGFILE
+    echo "${GREEN}Le dépôt RPM Fusion Non-Free est déjà configuré.${RESET}"
 fi
 
 # Vérification et installation des pilotes Nvidia si nécessaire
-echo "${BLUE}Vérification de l'installation des pilotes Nvidia...${RESET}" | tee -a $LOGFILE
+echo "${BLUE}Vérification de l'installation des pilotes Nvidia...${RESET}"
 if ! echo "$RPM_OSTREE_STATUS" | grep -q 'akmod-nvidia'; then
-    echo "${YELLOW}Installation du driver Nvidia...${RESET}" | tee -a $LOGFILE
-    rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda --quiet | tee -a $LOGFILE
+    echo "${YELLOW}Installation du driver Nvidia...${RESET}"
+    rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda --quiet
 else
-    echo "${GREEN}Les pilotes Nvidia sont déjà installés.${RESET}" | tee -a $LOGFILE
-fi
+    echo "${GREEN}Les pilotes Nvidia sont déjà installés.${RESET}"
 
 # Conclusion
-echo "${GREEN}Installation des drivers Nvidia et configuration terminées, redémarrez votre système pour appliquer les changements.${RESET}" | tee -a $LOGFILE
+echo "${GREEN}Installation des drivers Nvidia et configuration terminées, redémarrez votre système pour appliquer les changements.${RESET}"
