@@ -47,6 +47,20 @@ sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-n
 git clone https://github.com/Gaming-Linux-FR/post-install-silverblue-kinoite.git ~/post-install-silverblue-kinoite && cd ~/post-install-silverblue-kinoite && chmod +x ./nvidia.sh && sudo ./nvidia.sh
 ```
 
+- Chargement précoce des modules Nvidia
+
+Créez le fichier :
+
+```bash
+sudo nano /etc/dracut.conf.d/nvidia.conf
+```
+
+Collez dedans : 
+
+```
+force_drivers+=" nvidia nvidia_modeset nvidia_uvm nvidia_drm "
+```
+
 - Ajout du driver et des options kernel
 ```bash
 sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-libs

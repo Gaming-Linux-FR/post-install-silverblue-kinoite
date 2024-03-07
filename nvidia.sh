@@ -51,18 +51,22 @@ SCRIPT_DIR=$(dirname "$0")
 LOGFILE="$SCRIPT_DIR/post_install_nvidia.log"
 
 # Message de début du script
-echo "${BLUE}Début du script d'installation des drivers Nvidia sur Fedora Silverblue${RESET}" | tee $LOGFILE
+echo "${BLUE}Début du script d'installation des drivers Nvidia sur Fedora Silverblue${RESET}"
+
+# Chargement des modules Nvidia dans l'initramfs
+echo "${BLUE}Configuration du chargement précoce des modules Nvidia...${RESET}"
+echo "force_drivers+=\" nvidia nvidia_modeset nvidia_uvm nvidia_drm \"" | sudo tee /etc/dracut.conf.d/nvidia.conf > /dev/null
 
 # Configuration des arguments du noyau pour Nvidia, si nécessaire
-KARGS_NEEDED="rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1"
+KARGS_NEEDED="rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 nvidia-drm.fbdev=1"
 KARGS_CURRENT=$(rpm-ostree kargs)
 
 for KARG in $KARGS_NEEDED; do
     if [[ ! $KARGS_CURRENT =~ $KARG ]]; then
-        echo "${YELLOW}Ajout de l'argument du noyau $KARG...${RESET}" | tee -a $LOGFILE
+        echo "${YELLOW}Ajout de l'argument du noyau $KARG...${RESET}"
         rpm-ostree kargs --append=$KARG --quiet
     else
-        echo "${GREEN}L'argument du noyau $KARG est déjà défini.${RESET}" | tee -a $LOGFILE
+        echo "${GREEN}L'argument du noyau $KARG est déjà défini.${RESET}"
     fi
 done
 
