@@ -32,9 +32,10 @@ La décision d'utiliser Flatpak ou des paquets RPM sur Fedora Silverblue/Kinoite
 ## Ajout de Dépôts RPM Fusion
 Indispensable pour beaucoup de choses dont *Nvidia* :
 ```bash
-sudo rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo rpm-ostree update --uninstall rpmfusion-free-release --uninstall rpmfusion-nonfree-release --install rpmfusion-free-release --install rpmfusion-nonfree-release 
 ```
+
+Si erreur : ```error: Package/capability 'rpmfusion-free-release' is already requested```  C'était déjà fait, on peut passer à la suite.
 
 ---
 ## Pilotes Nvidia
