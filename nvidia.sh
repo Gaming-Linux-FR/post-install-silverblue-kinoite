@@ -104,6 +104,7 @@ if ! echo "$RPM_OSTREE_STATUS" | grep -q 'akmod-nvidia'; then
     rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda --quiet
 else
     echo "${GREEN}Les pilotes Nvidia sont déjà installés.${RESET}"
+fi
 
 # Conclusion
 echo "${GREEN}Installation des drivers Nvidia et configuration terminées, redémarrez votre système pour appliquer les changements.${RESET}"
