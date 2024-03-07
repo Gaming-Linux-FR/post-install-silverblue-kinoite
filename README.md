@@ -4,7 +4,6 @@
 
 - **[Flatpak ou RPM ?](#flatpak-ou-rpm)**
 - **[Pilotes Nvidia](#pilotes-nvidia)**
-- **[Suppression de l'Option `nomodeset`](#suppression-de-loption-nomodeset)**
 - **[AMD & Intel](#amd--intel)**
 - **[Installation d'Applications avec rpm-ostree](#installation-dapplications-avec-rpm-ostree)**
 - **[Installation d'Applications avec flatpak](#installation-dapplications-avec-flatpak)**
