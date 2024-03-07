@@ -16,6 +16,7 @@
 - **[Personnalisation de l'Apparence avec Adw-gtk3](#personnalisation-de-lapparence-avec-adw-gtk3)**
 - **[Installation et Configuration d'OpenRGB](#installation-et-configuration-dopenrgb)**
 - **[Steam Flatpak](#steam-flatpak)**
+- **[Problèmes divers](#problème-divers)**
 
 ---
 
@@ -295,3 +296,15 @@ Installation de Steam, configuration pour un démarrage en mode minimisé et ajo
         flatpak override --user --filesystem=/chemin/vers/votre/Bibliothèque/Steam com.valvesoftware.Steam
         ```
     - Remplacez `/chemin/vers/votre/Bibliothèque/Steam` par le chemin réel vers votre dossier de bibliothèque Steam sur le second disque.
+
+## Problèmes divers
+
+- Problème de connexion avec un apareil bluetooth :
+
+Éssayez :
+
+```bash
+sudo nano /etc/bluetooth/main.conf
+```
+
+Changez la lignes `#ControllerMode = dual` en `ControllerMode = bredr` et redémarer.
