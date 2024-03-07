@@ -9,7 +9,7 @@
 - **[Installation d'Applications avec flatpak](#installation-dapplications-avec-flatpak)**
 - **[Ajout de Dépôts RPM Fusion](#ajout-de-dépôts-rpm-fusion)**
 - **[Firefox avec CODEC](#firefox-avec-codec)**
-- **["Rebase" du Système](#rebase-du-systeme)**
+- **[Rebase du Système](#rebase-du-système)**
 - **[Restauration du Système (Rollback)](#restauration-du-système-rollback)**
 - **[Installation de xpadneo](#installation-de-xpadneo)**
 - **[Avoir les Gestes au Pavé Tactile sur Gnome X11](#avoir-les-gestes-au-pavé-tactile-sur-gnome-x11)**
