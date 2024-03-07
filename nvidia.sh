@@ -105,11 +105,11 @@ if [ "$DEPOTS_FREE_INSTALLED" = "no" ] || [ "$DEPOTS_NONFREE_INSTALLED" = "no" ]
     sudo rpm-ostree install $RPMFUSION_FREE $RPMFUSION_NONFREE --apply-live
     
     # Remplacer les dépôts versionnés par les versions actuelles
-    sudo rpm-ostree update --uninstall rpmfusion-free-release --uninstall rpmfusion-nonfree-release --install rpmfusion-free-release --install rpmfusion-nonfree-release --apply-live
+    sudo rpm-ostree update --uninstall rpmfusion-free-release --uninstall rpmfusion-nonfree-release --install rpmfusion-free-release --install rpmfusion-nonfree-release
 else
     echo "${GREEN}Les dépôts RPM Fusion sont déjà configurés. Vérification de la nécessité de mise à jour...${RESET}"
     # Remplacer les dépôts versionnés par les versions actuelles sans les installer à nouveau si déjà présents
-    sudo rpm-ostree update --uninstall rpmfusion-free-release --uninstall rpmfusion-nonfree-release --install rpmfusion-free-release --install rpmfusion-nonfree-release --apply-live
+    sudo rpm-ostree update --uninstall rpmfusion-free-release --uninstall rpmfusion-nonfree-release --install rpmfusion-free-release --install rpmfusion-nonfree-release
 fi
 
 # Vérification et installation des pilotes Nvidia si nécessaire
