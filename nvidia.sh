@@ -54,7 +54,7 @@ if [ ! -f "/etc/dracut.conf.d/nvidia.conf" ]; then
     echo "${YELLOW}Création du fichier de configuration pour Nvidia...${RESET}"
     echo "force_drivers+=\" nvidia nvidia_modeset nvidia_uvm nvidia_drm \"" | sudo tee /etc/dracut.conf.d/nvidia.conf > /dev/null
 else
-    echo "${GREEN}Le fichier de configuration pour Nvidia existe déjà.${RESET}"
+    echo "${GREEN}Le fichier de configuration pour charger les modules Nvidia dans l'initramfs existe déjà.${RESET}"
 fi
 
 # Configuration des arguments du noyau pour Nvidia, si nécessaire
