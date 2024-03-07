@@ -94,7 +94,7 @@ Pris en charge nativement.
 La commande est : ``rpm-ostree install nomdespaquets`` exemple :
 
 ```bash
-sudo rpm-ostree install fastfetch lutris goverlay wine
+sudo rpm-ostree install fastfetch lutris goverlay wine steam
 ```
 
 ---
