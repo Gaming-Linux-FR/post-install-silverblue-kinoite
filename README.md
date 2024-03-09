@@ -300,12 +300,4 @@ Installation de Steam, configuration pour un démarrage en mode minimisé et ajo
 
 ## Problèmes divers
 
-- Problème de connexion avec un apareil bluetooth :
-
-Éssayez :
-
-```bash
-sudo nano /etc/bluetooth/main.conf
-```
-
-Changez la lignes `#ControllerMode = dual` en `ControllerMode = bredr` et redémarer.
+Voir ce lien : [GLF ASTUCES](https://github.com/Gaming-Linux-FR/glf-astuces/edit/main/README.md)
