@@ -16,7 +16,7 @@
 - **[Personnalisation de l'Apparence avec Adw-gtk3](#personnalisation-de-lapparence-avec-adw-gtk3)**
 - **[Installation et Configuration d'OpenRGB](#installation-et-configuration-dopenrgb)**
 - **[Steam Flatpak](#steam-flatpak)**
-- **[Problèmes divers](#problème-divers)**
+- **[Problèmes divers](#problèmes-divers)**
 
 ---
 
@@ -107,7 +107,7 @@ Vous pouvez simplement passer par *Gnome logiciel* sur Silverblue ou *Discover* 
 
 ---
 
-## Firefox avec CODECs non libres.
+## Firefox avec CODEC
 Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Silverblue/Kinoite, permettant ainsi la lecture de toutes les vidéos, suivez ces étapes pour remplacer la version par défaut de Firefox par celle disponible via Flatpak de Flathub :
 
 1. **Supprimez Firefox installé par défaut** :
@@ -196,7 +196,8 @@ Les utilisateurs préférant rester encore un peu sur X11 peuvent améliorer leu
 
 ---
 
-## Personnalisation de l'Apparence avec Adw-gtk3 **Uniquement utile sur SILVERBLUE**
+## Personnalisation de l'Apparence avec Adw-gtk3
+**Uniquement utile sur SILVERBLUE**
 
 Pour personnaliser l'apparence de votre Fedora Silverblue ou Kinoite avec le thème Adw-gtk3, suivez ces étapes :
 
