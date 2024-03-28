@@ -218,11 +218,11 @@ Pour personnaliser l'apparence de votre Fedora Silverblue ou Kinoite avec le th�
 
 Ces étapes vous permettront de bénéficier d'une interface utilisateur modernisée et cohérente, grâce à l'application du thème Adw-gtk3 sur votre système.
 
-Pour intégrer OpenRGB, un outil permettant de contrôler l'éclairage RGB de divers périphériques sur Fedora Silverblue ou Kinoite, suivez ces instructions :
-
 ---
 
 ## Installation et Configuration d'[OpenRGB](https://openrgb.org)
+
+OpenRG est un outil permettant de contrôler l'éclairage RGB de divers périphériques.
 
 1. **Installation des règles udev pour OpenRGB** :
     - Ceci est nécessaire pour permettre à OpenRGB de communiquer correctement avec votre matériel sans nécessiter de permissions root.
@@ -254,8 +254,6 @@ Pour intégrer OpenRGB, un outil permettant de contrôler l'éclairage RGB de di
         Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=openrgb org.openrgb.OpenRGB --startminimized --profile "fedora"
         ```
     - Sauvegardez et fermez l'éditeur. Cette configuration permettra à OpenRGB de démarrer en arrière-plan avec les paramètres de votre profil "fedora" chaque fois que vous allumerez votre ordinateur.
-  
-   Pour intégrer un guide spécifique à l'installation et à la configuration de Steam via Flatpak sur Fedora Silverblue ou Kinoite, suivez ces instructions détaillées :
 
 ---
 
