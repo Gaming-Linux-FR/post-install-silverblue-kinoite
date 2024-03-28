@@ -26,7 +26,7 @@ La décision d'utiliser Flatpak ou des paquets RPM sur Fedora Silverblue/Kinoite
 
 - **Paquets RPM** : Installés avec `rpm-ostree install`, les paquets RPM sont intégrés directement dans le système. L'installation ou la mise à jour de paquets RPM nécessite un redémarrage du système pour être effective, en raison du caractère immuable de ces distributions. Cela peut être perçu comme une contrainte, surtout si vous recherchez une flexibilité et une mise à jour rapide de vos applications. Les paquets RPM sont officiellement fournis par Fedora, ce qui peut offrir une certaine assurance quant à leur qualité et leur suivi.
 
-- **Flatpak** : Installés par Gnome Logiciel / Discocer ou commande `flatpak install`. Cette méthode offre souvent des versions d'applications plus récentes et une isolation par rapport au système, ce qui peut améliorer la stabilité et la compatibilité des applications ainsi que augmenter la protection de votre vie privée. Cependant, l'utilisation de Flatpak peut exiger une gestion manuelle des permissions, par exemple pour permettre à une application comme Steam d'accéder à un second disque dur. Bien que Flatpak puisse offrir une plus grande flexibilité et des mises à jour plus fréquentes, certains paquets sont maintenus par la communauté et peuvent donc être sujets à des problèmes de suivi ou être abandonnés.
+- **Flatpak** : Installés par Gnome Logiciel / Discover ou commande `flatpak install`. Cette méthode offre souvent des versions d'applications plus récentes et une isolation par rapport au système, ce qui peut améliorer la stabilité et la compatibilité des applications ainsi que augmenter la protection de votre vie privée. Cependant, l'utilisation de Flatpak peut exiger une gestion manuelle des permissions, par exemple pour permettre à une application comme Steam d'accéder à un second disque dur. Bien que Flatpak puisse offrir une plus grande flexibilité et des mises à jour plus fréquentes, certains paquets sont maintenus par la communauté et peuvent donc être sujets à des problèmes de suivi ou être abandonnés.
 
 ---
 
@@ -120,7 +120,7 @@ Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Sil
     - Ouvrez **Gnome Software** (Logiciels GNOME).
     - Recherchez **Firefox**.
     - Assurez-vous de sélectionner la version provenant de **Flathub** et non celle du dépôt Fedora.
-    - Cliquez sur **Installer** pour procéder avec l'installation.
+    - Cliquez sur **Installer** pour procéder à l'installation.
 
 Cette méthode vous permet d'accéder à une version de Firefox intégrant nativement le support étendu des codecs, indispensable pour une expérience de navigation optimale, notamment pour la lecture vidéo. Opter pour la version Flatpak de Flathub garantit également que vous bénéficiez des mises à jour directes de l'application, indépendamment des cycles de mise à jour du système d'exploitation.
 
@@ -152,7 +152,7 @@ On peut passer de Kinoite à Silverblue sans problème, il faut juste reboot apr
 
 ## Restauration du Système (Rollback)
 - **Temporaire** : Redémarrez et sélectionnez la version précédente dans le menu de démarrage.
-- **Permanent** : Utilisez `sudo rpm-ostree rollback` sur e système que vous voulez garder et mettre en priorité au boot.
+- **Permanent** : Utilisez `sudo rpm-ostree rollback` sur le système que vous voulez garder et mettre en priorité au boot.
 
 ---
 
