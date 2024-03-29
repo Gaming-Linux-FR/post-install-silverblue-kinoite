@@ -18,7 +18,9 @@
 - **[Steam Flatpak](#steam-flatpak)**
 - **[Problèmes divers](#problèmes-divers)**
 
----
+--- 
+
+<br>
 
 ## Flatpak ou RPM 
 
@@ -28,7 +30,9 @@ La décision d'utiliser Flatpak ou des paquets RPM sur Fedora Silverblue/Kinoite
 
 - **Flatpak** : Installés par Gnome Logiciel / Discover ou commande `flatpak install`. Cette méthode offre souvent des versions d'applications plus récentes et une isolation par rapport au système, ce qui peut améliorer la stabilité et la compatibilité des applications ainsi que augmenter la protection de votre vie privée. Cependant, l'utilisation de Flatpak peut exiger une gestion manuelle des permissions, par exemple pour permettre à une application comme Steam d'accéder à un second disque dur. Bien que Flatpak puisse offrir une plus grande flexibilité et des mises à jour plus fréquentes, certains paquets sont maintenus par la communauté et peuvent donc être sujets à des problèmes de suivi ou être abandonnés.
 
----
+--- 
+
+<br>
 
 ## Ajout de Dépôts RPM Fusion
 Indispensable pour beaucoup de choses dont *Nvidia* :
@@ -85,12 +89,16 @@ error: No key 'nomodeset' found
 
 Cela signifie que l'option `nomodeset` n'était pas activée, *ce qui est l'état souhaité* pour garantir une compatibilité optimale avec les pilotes Nvidia.
 
----
+--- 
+
+<br>
 
 ## AMD & Intel
 Pris en charge nativement.
 
----
+--- 
+
+<br>
 
 ## Installation d'Applications avec rpm-ostree
 La commande est : ``rpm-ostree install nomdespaquets`` exemple :
@@ -99,13 +107,17 @@ La commande est : ``rpm-ostree install nomdespaquets`` exemple :
 sudo rpm-ostree install fastfetch lutris goverlay wine steam
 ```
 
----
+--- 
+
+<br>
 
 ## Installation d'Applications avec flatpak
 
 Vous pouvez simplement passer par *Gnome logiciel* sur Silverblue ou *Discover* sur Kinoite. Attention de bien selectionner la source flathub en haut à droite.
 
----
+--- 
+
+<br>
 
 ## Firefox avec CODEC
 Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Silverblue/Kinoite, permettant ainsi la lecture de toutes les vidéos, suivez ces étapes pour remplacer la version par défaut de Firefox par celle disponible via Flatpak de Flathub :
@@ -124,7 +136,9 @@ Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Sil
 
 Cette méthode vous permet d'accéder à une version de Firefox intégrant nativement le support étendu des codecs, indispensable pour une expérience de navigation optimale, notamment pour la lecture vidéo. Opter pour la version Flatpak de Flathub garantit également que vous bénéficiez des mises à jour directes de l'application, indépendamment des cycles de mise à jour du système d'exploitation.
 
----
+--- 
+
+<br>
 
 ## Rebase du système
 
@@ -148,13 +162,17 @@ exemples :
 
 On peut passer de Kinoite à Silverblue sans problème, il faut juste reboot après une rebase. Si jamais il y a un problème on peut booter sur l'ancienne entrée et rollback pour la repasser en entée principale.
 
----
+--- 
+
+<br>
 
 ## Restauration du Système (Rollback)
 - **Temporaire** : Redémarrez et sélectionnez la version précédente dans le menu de démarrage.
 - **Permanent** : Utilisez `sudo rpm-ostree rollback` sur le système que vous voulez garder et mettre en priorité au boot.
 
----
+--- 
+
+<br>
 
 ## Installation de [xpadneo](https://github.com/atar-axis/xpadneo)
 
@@ -194,7 +212,9 @@ Les utilisateurs préférant rester encore un peu sur X11 peuvent améliorer leu
 2. **Installation de l'Extension Gnome X11 Gestures** :
     - Pour une intégration parfaite avec Gnome sous X11, installez l'extension Gnome X11 Gestures. Visitez la page de l'extension sur le site des extensions Gnome à l'adresse suivante et activez-la : [X11 Gestures sur extensions.gnome.org](https://extensions.gnome.org/extension/4033/x11-gestures/).
 
----
+--- 
+
+<br>
 
 ## Personnalisation de l'Apparence avec Adw-gtk3
 **Uniquement utile sur SILVERBLUE**
@@ -218,7 +238,9 @@ Pour personnaliser l'apparence de votre Fedora Silverblue ou Kinoite avec le th�
 
 Ces étapes vous permettront de bénéficier d'une interface utilisateur modernisée et cohérente, grâce à l'application du thème Adw-gtk3 sur votre système.
 
----
+--- 
+
+<br>
 
 ## Installation et Configuration d'[OpenRGB](https://openrgb.org)
 
@@ -255,7 +277,9 @@ OpenRG est un outil permettant de contrôler l'éclairage RGB de divers périph�
         ```
     - Sauvegardez et fermez l'éditeur. Cette configuration permettra à OpenRGB de démarrer en arrière-plan avec les paramètres de votre profil "fedora" chaque fois que vous allumerez votre ordinateur.
 
----
+--- 
+
+<br>
 
 ## Steam Flatpak
 Installation de Steam, configuration pour un démarrage en mode minimisé et ajout d'une bibliothèque de jeux sur un second disque.
@@ -295,6 +319,10 @@ Installation de Steam, configuration pour un démarrage en mode minimisé et ajo
         flatpak override --user --filesystem=/chemin/vers/votre/Bibliothèque/Steam com.valvesoftware.Steam
         ```
     - Remplacez `/chemin/vers/votre/Bibliothèque/Steam` par le chemin réel vers votre dossier de bibliothèque Steam sur le second disque.
+
+--- 
+
+<br>
 
 ## Problèmes divers
 
