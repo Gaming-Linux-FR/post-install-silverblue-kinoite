@@ -161,7 +161,7 @@ exemples :
 - Pour passer à Kinoite Rawhide    : `rpm-ostree rebase fedora:fedora/rawhide/x86_64/kinoite`
 - Pour passer à Silverblue Rawhide : `rpm-ostree rebase fedora:fedora/rawhine/x86_64/silverblue`
 
-On peut passer de Kinoite à Silverblue sans problème, il faut juste reboot après une rebase. Si jamais il y a un problème on peut booter sur l'ancienne entrée et rollback pour la repasser en entée principale.
+On peut passer de Kinoite à Silverblue sans problème, il faut juste reboot après une rebase. Si jamais il y a un problème on peut booter sur l'ancienne entrée et rollback pour la repasser en entrée principale.
 
 --- 
 
@@ -194,7 +194,7 @@ Comme pour Nvidia, le *sécure boot doit être désactivé* dans le bios car c'e
 
 ## Avoir les Gestes au Pavé Tactile sur Gnome X11
 
-Les utilisateurs préférant rester encore un peu sur X11 peuvent améliorer leur expérience en activant les gestes tactiles, ce qui rend la navigation et l'interaction avec le système d'exploitation plus intuitive et fluide.
+Les utilisateurs préférant rester encore un peu sur X11 peuvent améliorer leur expérience en activant les gestes tactiles, ce qui rend la navigation et l'interaction avec le système d'exploitation plus intuitives et fluides.
 
 1. **Installation de Touchégg** :
     - Touchégg est une application qui transforme les gestes sur le pavé tactile en actions. Pour l'installer, utilisez la commande suivante :
@@ -245,7 +245,7 @@ Ces étapes vous permettront de bénéficier d'une interface utilisateur moderni
 
 ## Installation et Configuration d'[OpenRGB](https://openrgb.org)
 
-OpenRG est un outil permettant de contrôler l'éclairage RGB de divers périphériques.
+OpenRGB est un outil permettant de contrôler l'éclairage RGB de divers périphériques.
 
 1. **Installation des règles udev pour OpenRGB** :
     - Ceci est nécessaire pour permettre à OpenRGB de communiquer correctement avec votre matériel sans nécessiter de permissions root.
