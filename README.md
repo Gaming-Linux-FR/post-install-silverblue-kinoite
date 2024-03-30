@@ -16,6 +16,7 @@
 - **[Personnalisation de l'Apparence avec Adw-gtk3](#personnalisation-de-lapparence-avec-adw-gtk3)**
 - **[Installation et Configuration d'OpenRGB](#installation-et-configuration-dopenrgb)**
 - **[Steam Flatpak](#steam-flatpak)**
+- **[Multi boot](#multi-boot)**
 - **[Problèmes divers](#problèmes-divers)**
 
 --- 
@@ -319,6 +320,28 @@ Installation de Steam, configuration pour un démarrage en mode minimisé et ajo
         flatpak override --user --filesystem=/chemin/vers/votre/Bibliothèque/Steam com.valvesoftware.Steam
         ```
     - Remplacez `/chemin/vers/votre/Bibliothèque/Steam` par le chemin réel vers votre dossier de bibliothèque Steam sur le second disque.
+
+--- 
+
+<br>
+
+## Multi Boot
+
+Comment ajouter une entrée dans le grub pour vos autres OS.
+
+Détecter les autres OS :
+
+```sh
+sudo os-prober
+```
+
+Puis les ajouter au grub :
+
+```sh
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+Et voilà en 2 commandes vous retrouverez vos autres systèmes d'exploitation dans le grub de Kinoite / Silverblue.
 
 --- 
 
