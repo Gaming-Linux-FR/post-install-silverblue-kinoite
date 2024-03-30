@@ -220,7 +220,7 @@ Les utilisateurs préférant rester encore un peu sur X11 peuvent améliorer leu
 ## Personnalisation de l'Apparence avec Adw-gtk3
 **Uniquement utile sur SILVERBLUE**
 
-Pour personnaliser l'apparence de votre Fedora Silverblue ou Kinoite avec le thème Adw-gtk3, suivez ces étapes :
+Pour personnaliser l'apparence de votre Fedora Silverblue avec le thème Adw-gtk3, suivez ces étapes :
 
 1. **Installation du Gnome Tweak Tool et du Thème Adw-gtk3** :
     ```bash
