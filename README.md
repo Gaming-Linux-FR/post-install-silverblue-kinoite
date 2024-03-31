@@ -54,6 +54,8 @@ Si erreur : ```error: Package/capability 'rpmfusion-free-release' is already req
 git clone https://github.com/Gaming-Linux-FR/post-install-silverblue-kinoite.git ~/post-install-silverblue-kinoite && cd ~/post-install-silverblue-kinoite && chmod +x ./nvidia.sh && sudo ./nvidia.sh
 ```
 
+**Si vous préférez le faire vous même suivez les étapes suivantes :**
+
 - Chargement précoce des modules Nvidia
 
 Créez le fichier :
@@ -121,7 +123,9 @@ Vous pouvez simplement passer par *Gnome logiciel* sur Silverblue ou *Discover* 
 <br>
 
 ## Firefox avec CODEC
-Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Silverblue/Kinoite, permettant ainsi la lecture de toutes les vidéos, suivez ces étapes pour remplacer la version par défaut de Firefox par celle disponible via Flatpak de Flathub :
+Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Silverblue/Kinoite, permettant ainsi la lecture de toutes les vidéos.
+
+**Première solution**, suivez ces étapes pour remplacer la version par défaut de Firefox par celle disponible via Flatpak de Flathub :
 
 1. **Supprimez Firefox installé par défaut** :
     - Exécutez la commande suivante pour retirer Firefox et ses paquets de langues associés du système :
@@ -137,7 +141,7 @@ Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Sil
 
 Cette méthode vous permet d'accéder à une version de Firefox intégrant nativement le support étendu des codecs, indispensable pour une expérience de navigation optimale, notamment pour la lecture vidéo. Opter pour la version Flatpak de Flathub garantit également que vous bénéficiez des mises à jour directes de l'application, indépendamment des cycles de mise à jour du système d'exploitation.
 
-Si vous voulez rester sur le Firefox rmp, installer le paquet `libavcodec-freeworld` devrait suffire pour la plus part des usages. Il faut avoir préalablement activé les dépots rpm-fusion.
+**Seconde solution**, si vous préférez rester sur le Firefox rpm, installer le paquet `libavcodec-freeworld`, il devrait suffire pour la plus part des usages. Il faut avoir préalablement activé les dépots rpm-fusion.
 
 ```sh
 rpm-ostree install --apply-live libavcodec-freeworld
@@ -148,6 +152,8 @@ rpm-ostree install --apply-live libavcodec-freeworld
 <br>
 
 ## Rebase du système
+
+Rebase permet de passer d'une Fedora immuable à une autre.
 
 Passer sur Silverblue 40 qui est au moment ou j'écris ses lignes en phase de testing :
 ```bash
