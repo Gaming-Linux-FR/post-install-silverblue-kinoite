@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Définition d'un gestionnaire d'erreur
+function errorHandler {
+    echo -e "${RED}Une erreur est survenue. Veuillez redémarrer votre système et réessayer d'exécuter le script. Ouvrir une issue sur le github si l'erreur perciste.${RESET}" 1>&2
+    exit 1
+}
+
+# Configuration du script pour appeler errorHandler en cas d'erreur
+trap errorHandler ERR
+
 set -e # Arrête le script en cas d'erreur
 
 # Définition des couleurs
@@ -15,7 +24,6 @@ if [ "$(id -u)" != "0" ]; then
    echo "${RED}Ce script doit être exécuté en tant que root. Veuillez lancer avec sudo ou en tant que root.${RESET}" 1>&2
    exit 1
 fi
-
 
 # Définition des URLs RPM Fusion
 RPMFUSION_FREE="https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
