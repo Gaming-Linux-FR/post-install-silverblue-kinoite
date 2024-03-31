@@ -2,8 +2,19 @@
 
 # Définition d'un gestionnaire d'erreur
 function errorHandler {
-    echo -e "${RED}Une erreur est survenue. Veuillez redémarrer votre système et réessayer d'exécuter le script. Ouvrir une issue sur le github si l'erreur perciste.${RESET}" 1>&2
+    echo -e "${RED}Une erreur est survenue. Veuillez redémarrer votre système et réessayer d'exécuter le script. Ouvrir une issue sur le GitHub si l'erreur persiste.${RESET}" 1>&2
     exit 1
+}
+
+# Vérification de la connectivité Internet
+function checkInternet {
+    echo "${BLUE}Vérification de la connectivité Internet...${RESET}"
+    if ! ping -c 1 google.com &> /dev/null; then
+        echo "${RED}Une connexion Internet est requise pour exécuter ce script. Vérifiez votre connexion et réessayez.${RESET}"
+        exit 1
+    else
+        echo "${GREEN}Connectivité Internet confirmée.${RESET}"
+    fi
 }
 
 # Configuration du script pour appeler errorHandler en cas d'erreur
@@ -24,6 +35,8 @@ if [ "$(id -u)" != "0" ]; then
    echo "${RED}Ce script doit être exécuté en tant que root. Veuillez lancer avec sudo ou en tant que root.${RESET}" 1>&2
    exit 1
 fi
+
+checkInternet # Appel de la fonction de vérification de la connectivité Internet
 
 # Définition des URLs RPM Fusion
 RPMFUSION_FREE="https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
