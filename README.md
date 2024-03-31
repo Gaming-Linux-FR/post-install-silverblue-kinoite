@@ -130,12 +130,18 @@ Pour assurer la prise en charge complète des codecs dans Firefox sur Fedora Sil
         ```
 
 2. **Installez Firefox via Flatpak** :
-    - Ouvrez **Gnome Software** (Logiciels GNOME).
+    - Ouvrez **Gnome Software** ou **Discover**.
     - Recherchez **Firefox**.
     - Assurez-vous de sélectionner la version provenant de **Flathub** et non celle du dépôt Fedora.
     - Cliquez sur **Installer** pour procéder à l'installation.
 
 Cette méthode vous permet d'accéder à une version de Firefox intégrant nativement le support étendu des codecs, indispensable pour une expérience de navigation optimale, notamment pour la lecture vidéo. Opter pour la version Flatpak de Flathub garantit également que vous bénéficiez des mises à jour directes de l'application, indépendamment des cycles de mise à jour du système d'exploitation.
+
+Si vous voulez rester sur le Firefox rmp, installer le paquet `libavcodec-freeworld` devrait suffire pour la plus part des usages. Il faut avoir préalablement activé les dépots rpm-fusion.
+
+```sh
+rpm-ostree install --apply-live libavcodec-freeworld
+```
 
 --- 
 
