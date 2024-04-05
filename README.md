@@ -56,24 +56,10 @@ git clone https://github.com/Gaming-Linux-FR/post-install-silverblue-kinoite.git
 
 **Si vous préférez le faire vous même suivez les étapes suivantes :**
 
-- Chargement précoce des modules Nvidia
-
-Créez le fichier :
-
-```bash
-sudo nano /etc/dracut.conf.d/nvidia.conf
-```
-
-Collez dedans : 
-
-```
-force_drivers+=" nvidia nvidia_modeset nvidia_uvm nvidia_drm "
-```
-
 - Ajout du driver et des options kernel
 ```bash
 sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-libs
-sudo rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1 --append=nvidia-drm.fbdev=1
+sudo rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
 ```
 
 - Suppression de l'Option `nomodeset`
