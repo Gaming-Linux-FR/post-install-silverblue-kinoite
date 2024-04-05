@@ -75,16 +75,8 @@ header
 # Message de début du script
 echo "${BLUE}Début du script d'installation des drivers Nvidia sur Fedora Silverblue${RESET}"
 
-# Chargement des modules Nvidia dans l'initramfs
-if [ ! -f "/etc/dracut.conf.d/nvidia.conf" ]; then
-    echo "${YELLOW}Création du fichier de configuration pour Nvidia...${RESET}"
-    echo "force_drivers+=\" nvidia nvidia_modeset nvidia_uvm nvidia_drm \"" | sudo tee /etc/dracut.conf.d/nvidia.conf > /dev/null
-else
-    echo "${GREEN}Le fichier de configuration pour charger les modules Nvidia dans l'initramfs existe déjà.${RESET}"
-fi
-
 # Configuration et nettoyage des arguments du noyau pour Nvidia, si nécessaire
-KARGS_NEEDED="rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 nvidia-drm.fbdev=1"
+KARGS_NEEDED="rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1"
 KARGS_CURRENT=$(rpm-ostree kargs)
 
 # Initialiser une chaîne pour les modifications d'arguments du noyau
