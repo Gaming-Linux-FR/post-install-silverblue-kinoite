@@ -58,7 +58,7 @@ git clone https://github.com/Gaming-Linux-FR/post-install-silverblue-kinoite.git
 
 - Ajout du driver et des options kernel
 ```bash
-sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-libs
+sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-libs nvidia-vaapi-driver libva-utils vdpauinfo
 sudo rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
 ```
 
@@ -84,6 +84,8 @@ Cela signifie que l'option `nomodeset` n'était pas activée, *ce qui est l'éta
 
 ## AMD & Intel
 Pris en charge nativement.
+
+Intel on peut quand même ajouter : ``` sudo rpm-ostree intel-media-driver``` si on a et que on se sert d'une puce Intel HD.
 
 --- 
 
@@ -130,7 +132,7 @@ Cette méthode vous permet d'accéder à une version de Firefox intégrant nativ
 **Seconde solution**, si vous préférez rester sur le Firefox rpm, installer le paquet `libavcodec-freeworld`, il devrait suffire pour la plus part des usages. Il faut avoir préalablement activé les dépots rpm-fusion.
 
 ```sh
-rpm-ostree install --apply-live libavcodec-freeworld
+sudo rpm-ostree override remove mesa-va-drivers libavcodec-free libavfilter-free libavformat-free libavutil-free libpostproc-free libswresample-free libswscale-free --install ffmpeg --install mesa-va-drivers-freeworld libavcodec-freeworld
 ```
 
 --- 
