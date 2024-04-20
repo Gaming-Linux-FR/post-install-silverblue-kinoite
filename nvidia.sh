@@ -134,7 +134,7 @@ fi
 echo "${BLUE}Vérification de l'installation des pilotes Nvidia...${RESET}"
 if ! echo "$RPM_OSTREE_STATUS" | grep -q 'akmod-nvidia'; then
     echo "${YELLOW}Installation du driver Nvidia...${RESET}"
-    rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda --quiet
+    rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda nvidia-vaapi-driver libva-utils vdpauinfo --quiet
 else
     echo "${GREEN}Les pilotes Nvidia sont déjà installés.${RESET}"
 fi
