@@ -85,7 +85,7 @@ Cela signifie que l'option `nomodeset` n'était pas activée, *ce qui est l'éta
 ## AMD & Intel
 Pris en charge nativement.
 
-Intel on peut quand même ajouter : ``` sudo rpm-ostree intel-media-driver``` si on a et que on se sert d'une puce Intel HD.
+Intel on peut quand même ajouter : ``` sudo rpm-ostree intel-media-driver libva-intel-driver``` si on a et que on se sert d'une puce Intel HD.
 
 --- 
 
