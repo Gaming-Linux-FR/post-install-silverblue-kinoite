@@ -95,7 +95,7 @@ Intel on peut quand même ajouter : ``` sudo rpm-ostree intel-media-driver libva
 La commande est : ``rpm-ostree install nomdespaquets`` exemple :
 
 ```bash
-sudo rpm-ostree install fastfetch lutris goverlay wine steam
+sudo rpm-ostree install fastfetch lutris goverlay wine steam vlc obs-studio
 ```
 
 --- 
