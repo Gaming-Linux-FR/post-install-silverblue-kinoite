@@ -41,11 +41,9 @@ Indispensable pour beaucoup de choses dont *Nvidia* ou les codecs :
 La première fois que vous installez les dépôts RPM Fusion, vous devez installer les RPM versionnés :
 
 ```bash
-sudo rpm-ostree install \
+sudo rpm-ostree install --apply-live \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
     https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-reboot
 ```
 
 Une fois que vous avez redémarré dans le nouveau déploiement, vous pouvez exécuter la commande suivante pour retirer le "verrou" sur les paquets versionnés qui ont été installés précédemment. Cela permettra aux dépôts RPM Fusion d'être mis à jour automatiquement et d'être correctement versionnés à travers les rebasages majeurs de version de Fedora :
