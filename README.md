@@ -18,6 +18,7 @@
 - **[Steam Flatpak](#steam-flatpak)**
 - **[Multi boot](#multi-boot)**
 - **[Problèmes divers](#problèmes-divers)**
+- **[Assurez-vous que TRIM fonctionne](#assurez-vous-que-trim-fonctionne)**
 
 --- 
 
@@ -356,6 +357,90 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
 Et voilà en 2 commandes vous retrouverez vos autres systèmes d'exploitation dans le grub de Kinoite / Silverblue.
+
+--- 
+
+<br>
+
+# Assurez-vous que TRIM fonctionne
+
+J'ai remarqué que je n'avais pas le trim d'activé, j'ai trouvé la solution dans ce guide https://lurkerlabs.com/fedora-silverblue-ultimate-post-install-guide/
+
+En voici la traduction : 
+
+## Vérifiez si TRIM est activé
+
+Si vous avez installé Fedora Silverblue sur un SSD, il est crucial de vérifier si TRIM est activé, surtout si vous avez choisi de chiffrer vos données lors de l'installation.
+
+### Utilisez la commande suivante pour vérifier :
+
+```bash
+lsblk --discard
+```
+
+### Analysez les résultats :
+
+Regardez les valeurs dans les colonnes `DISC-GRAN` et `DISC-MAX`. Des valeurs non nulles indiquent que le périphérique prend en charge les commandes de suppression. Voici un exemple de sortie :
+
+```
+NAME                                        DISC-ALN DISC-GRAN DISC-MAX DISC-ZERO
+zram0                                              0        4K       2T         0
+nvme0n1                                            0      512B       2T         0
+├─nvme0n1p1                                        0      512B       2T         0
+├─nvme0n1p2                                        0      512B       2T         0
+└─nvme0n1p3                                        0      512B       2T         0
+  └─luks-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx      0         0        0         0
+```
+
+Comme on peut le voir, le périphérique physique `nvme0n1` et tous ses volumes supportent les suppressions, mais le volume chiffré luks sur `nvme0n1p3` ne le fait pas.
+
+### Tester manuellement TRIM :
+
+Vous pouvez vérifier manuellement en exécutant la commande suivante :
+
+```bash
+sudo fstrim /
+```
+
+Attendu dans ce cas de figure, cette commande pourrait retourner un message d'erreur.
+
+## Permettre les requêtes de suppression
+
+Par défaut, les systèmes de fichiers chiffrés LUKS ne supportent pas le passage des requêtes de suppression pour des raisons de sécurité. Pourtant, pour la plupart des utilisateurs, les avantages de TRIM surpassent ces préoccupations de sécurité.
+
+### Activer TRIM :
+
+La façon la plus simple d'activer TRIM sur Linux est de passer l'option `discard` dans `/etc/crypttab`. Si nous vérifions le contenu de ce fichier avec :
+
+```bash
+sudo cat /etc/crypttab
+```
+
+Nous verrons que le drapeau `discard` est déjà présent. C'est le réglage par défaut pour Fedora.
+
+### Problème avec Silverblue :
+
+Contrairement à Fedora Workstation, Silverblue ne semble pas analyser le fichier crypttab dans l'image initramfs utilisée pour démarrer le noyau.
+
+#### Solution :
+
+Nous pourrions ajouter `/etc/crypttab` à l'image initramfs nous-mêmes :
+
+```bash
+rpm-ostree initramfs --enable --arg=-I --arg=/etc/crypttab
+```
+
+Cela obligerait cependant `rpm-ostree` à reconstruire l'initramfs à chaque déploiement. Au lieu de cela, nous répliquons le contenu de `/etc/crypttab` et le parse en tant qu'arguments du noyau, laissant ainsi l'initramfs intact.
+
+Il faut bien entendu remplacer les xxxxxxx par votre clé.
+
+```bash
+rpm-ostree kargs --append=rd.luks.options=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx=discard
+```
+
+### Redémarrage et vérification :
+
+Après un redémarrage, `lsblk -D` devrait rapporter des valeurs non nulles et `sudo fstrim /` devrait fonctionner correctement. Assurez-vous de remplacer `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` par le UUID réel du volume luks chiffré.
 
 --- 
 
