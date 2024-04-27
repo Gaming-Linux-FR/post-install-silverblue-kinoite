@@ -406,7 +406,7 @@ Attendu dans ce cas de figure, cette commande pourrait retourner un message d'er
 
 ## Permettre les requêtes de suppression
 
-Par défaut, les systèmes de fichiers chiffrés LUKS ne supportent pas le passage des requêtes de suppression pour des raisons de sécurité. Pourtant, pour la plupart des utilisateurs, les avantages de TRIM surpassent ces préoccupations de sécurité.
+Par défaut, les systèmes de fichiers chiffrés LUKS ne supportent pas le passage des requêtes de suppression pour des [raisons de sécurité](https://asalor.blogspot.com/2011/08/trim-dm-crypt-problems.html). Pourtant, pour la plupart des utilisateurs, les avantages de TRIM surpassent ces préoccupations de sécurité.
 
 ### Activer TRIM :
 
@@ -420,7 +420,7 @@ Nous verrons que le drapeau `discard` est déjà présent. C'est le réglage par
 
 ### Problème avec Silverblue :
 
-Contrairement à Fedora Workstation, Silverblue ne semble pas analyser le fichier crypttab dans l'image initramfs utilisée pour démarrer le noyau.
+Contrairement à Fedora Workstation, Silverblue ne semble pas analyser le fichier crypttab dans l'image initramfs utilisée pour démarrer le noyau. Il y a [un rapport de bug](https://bugzilla.redhat.com/show_bug.cgi?id=1801539) ouvert à ce sujet.
 
 #### Solution :
 
